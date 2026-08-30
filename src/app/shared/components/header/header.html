@@ -4,11 +4,10 @@
 
     <div class="container">
 
-     
       <a
         class="navbar-brand"
-        routerLink="/">
-
+        routerLink="/"
+      >
         <div class="brand-wrapper">
 
           <div class="brand-icon">
@@ -16,18 +15,21 @@
           </div>
 
           <div class="brand-info">
-            <span class="brand-name">في خدمتك</span>
+
+            <span class="brand-name">
+              في خدمتك
+            </span>
+
             <span class="brand-slogan">
               كل اللي تحتاجه.. في خدمتك
             </span>
+
           </div>
 
         </div>
-
       </a>
 
 
-       
       <button
         class="navbar-toggler"
         type="button"
@@ -35,49 +37,80 @@
         data-bs-target="#mainNavbar"
         aria-controls="mainNavbar"
         aria-expanded="false"
-        aria-label="فتح القائمة">
-
+        aria-label="فتح القائمة"
+      >
         <span class="navbar-toggler-icon"></span>
-
       </button>
 
 
-       
       <div
         class="collapse navbar-collapse"
-        id="mainNavbar">
+        id="mainNavbar"
+      >
 
-        
         <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
 
           <li class="nav-item">
             <a
-              class="nav-link active"
-              routerLink="/">
+              class="nav-link"
+              routerLink="/"
+            >
+              <i class="bi bi-house-door"></i>
               الرئيسية
             </a>
           </li>
 
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              routerLink="/services">
-              الخدمات
-            </a>
-          </li>
 
           <li class="nav-item">
             <a
               class="nav-link"
-              routerLink="/orders">
+              routerLink="/supermarket"
+            >
+              <i class="bi bi-basket2"></i>
+              السوبر ماركت
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/pharmacy"
+            >
+              <i class="bi bi-capsule"></i>
+              الصيدلية
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/gifts"
+            >
+              <i class="bi bi-gift"></i>
+              الهدايا
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/orders"
+            >
+              <i class="bi bi-box-seam"></i>
               طلباتي
             </a>
           </li>
 
+
           <li class="nav-item">
             <a
               class="nav-link"
-              routerLink="/about">
+              routerLink="/about"
+            >
+              <i class="bi bi-info-circle"></i>
               عن في خدمتك
             </a>
           </li>
@@ -85,44 +118,79 @@
         </ul>
 
 
-        
         <div class="header-actions">
 
-        
-          <button
+          <a
             class="cart-btn"
-            type="button"
-            aria-label="سلة الطلبات">
-
+            routerLink="/cart"
+            aria-label="سلة التسوق"
+          >
             <i class="bi bi-cart3"></i>
 
-            <span class="cart-badge">
-              0
-            </span>
-
-          </button>
-
-
-          
-          <a
-            class="btn btn-outline-primary login-btn"
-            routerLink="/login">
-
-            <i class="bi bi-box-arrow-in-left"></i>
-
-            تسجيل الدخول
+            @if (cartCount > 0) {
+              <span class="cart-badge">
+                {{ cartCount }}
+              </span>
+            }
 
           </a>
 
 
+          @if (!currentUser) {
 
-          <a
-            class="btn btn-primary register-btn"
-            routerLink="/register">
+            <a
+              class="login-btn"
+              routerLink="/login"
+            >
+              <i class="bi bi-box-arrow-in-left"></i>
+              تسجيل الدخول
+            </a>
 
-            إنشاء حساب
 
-          </a>
+            <a
+              class="register-btn"
+              routerLink="/register"
+            >
+              إنشاء حساب
+            </a>
+
+          } @else {
+
+            <div class="user-menu">
+
+              <div class="user-info">
+
+                <div class="user-avatar">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+
+                <div class="user-text">
+
+                  <span class="user-label">
+                    أهلاً
+                  </span>
+
+                  <strong>
+                    {{ currentUser.name }}
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <button
+                type="button"
+                class="logout-btn"
+                (click)="logout()"
+              >
+                <i class="bi bi-box-arrow-right"></i>
+                تسجيل الخروج
+              </button>
+
+            </div>
+
+          }
 
         </div>
 

@@ -1,0 +1,224 @@
+<section class="recommendation-page">
+
+  <div class="container">
+
+    <div class="recommendation-wrapper">
+
+      <div class="page-header">
+
+        <div class="gift-icon">
+          🎁
+        </div>
+
+        <h1>
+          نساعدك تختار الهدية المناسبة
+        </h1>
+
+        <p>
+          جاوب على سؤالين بسيطين،
+          وإحنا هنرشح لك أنسب الهدايا.
+        </p>
+
+      </div>
+
+
+      <div class="progress-area">
+
+        <div
+          class="progress-step"
+          [class.active]="step >= 1"
+        >
+          <span class="step-number">
+            1
+          </span>
+
+          <span class="step-name">
+            الهدية لمين؟
+          </span>
+        </div>
+
+
+        <div
+          class="progress-line"
+          [class.active]="step >= 2"
+        ></div>
+
+
+        <div
+          class="progress-step"
+          [class.active]="step >= 2"
+        >
+          <span class="step-number">
+            2
+          </span>
+
+          <span class="step-name">
+            المناسبة
+          </span>
+        </div>
+
+      </div>
+
+
+      @if (step === 1) {
+
+        <div class="question-card">
+
+          <div class="question-header">
+
+            <span class="small-title">
+              الخطوة الأولى
+            </span>
+
+            <h2>
+              الهدية لمين؟
+            </h2>
+
+            <p>
+              اختار الشخص اللي عايز تجيب له الهدية.
+            </p>
+
+          </div>
+
+
+          <div class="recipient-grid">
+
+            @for (
+              recipient of recipients;
+              track recipient.id
+            ) {
+
+              <button
+                type="button"
+                class="option-card"
+                [class.selected]="
+                  selectedRecipient === recipient.id
+                "
+                (click)="
+                  selectRecipient(recipient.id)
+                "
+              >
+
+                <span class="option-icon">
+                  {{ recipient.icon }}
+                </span>
+
+                <span class="option-title">
+                  {{ recipient.name }}
+                </span>
+
+              </button>
+
+            }
+
+          </div>
+
+
+          <div class="actions first-step-actions">
+
+            <button
+              type="button"
+              class="next-btn"
+              [disabled]="!selectedRecipient"
+              (click)="goToNextStep()"
+            >
+              التالي
+
+              <i class="bi bi-arrow-left"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      @if (step === 2) {
+
+        <div class="question-card">
+
+          <div class="question-header">
+
+            <span class="small-title">
+              الخطوة الثانية
+            </span>
+
+            <h2>
+              المناسبة إيه؟
+            </h2>
+
+            <p>
+              اختار المناسبة عشان نحدد
+              أنسب الهدايا.
+            </p>
+
+          </div>
+
+
+          <div class="occasion-grid">
+
+            @for (
+              occasion of availableOccasions;
+              track occasion.id
+            ) {
+
+              <button
+                type="button"
+                class="option-card"
+                [class.selected]="
+                  selectedOccasion === occasion.id
+                "
+                (click)="
+                  selectOccasion(occasion.id)
+                "
+              >
+
+                <span class="option-icon">
+                  {{ occasion.icon }}
+                </span>
+
+                <span class="option-title">
+                  {{ occasion.name }}
+                </span>
+
+              </button>
+
+            }
+
+          </div>
+
+
+          <div class="actions">
+
+            <button
+              type="button"
+              class="back-btn"
+              (click)="goToPreviousStep()"
+            >
+              <i class="bi bi-arrow-right"></i>
+
+              السابق
+            </button>
+
+
+            <button
+              type="button"
+              class="recommend-btn"
+              [disabled]="!selectedOccasion"
+              (click)="showRecommendations()"
+            >
+              🎁 عرض الهدايا المقترحة
+            </button>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>

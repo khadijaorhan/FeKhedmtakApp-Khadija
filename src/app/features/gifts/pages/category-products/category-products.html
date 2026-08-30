@@ -1,0 +1,144 @@
+<section class="category-page">
+
+  <div class="container">
+
+    <div class="page-header">
+
+      <div class="category-icon">
+        {{ categoryIcon }}
+      </div>
+
+      <h1>
+        {{ categoryName }}
+      </h1>
+
+      <p>
+        اختر المنتجات اللي تعجبك وأضفها لصندوق الهدية.
+      </p>
+
+    </div>
+
+
+    @if (products.length > 0) {
+
+      <div class="products-grid">
+
+        @for (
+          product of products;
+          track product.id
+        ) {
+
+          <article
+            class="product-card"
+            [class.selected]="
+              isSelected(product.id)
+            "
+          >
+
+            <div
+              class="product-image"
+              (click)="openProduct(product.id)"
+            >
+
+              <img
+                [src]="product.image"
+                [alt]="product.name"
+              >
+
+              @if (
+                isSelected(product.id)
+              ) {
+
+                <span class="selected-badge">
+                  ✓ تم اختياره
+                </span>
+
+              }
+
+            </div>
+
+
+            <div class="product-content">
+
+              <h2
+                (click)="openProduct(product.id)"
+              >
+                {{ product.name }}
+              </h2>
+
+              <p>
+                {{ product.description }}
+              </p>
+
+
+              <div class="product-bottom">
+
+                <strong>
+                  {{ product.price }}
+                  جنيه
+                </strong>
+
+                <button
+                  type="button"
+                  (click)="toggleProduct(product)"
+                >
+
+                  @if (
+                    isSelected(product.id)
+                  ) {
+                    ✓ تم الاختيار
+                  } @else {
+                    + اختر للصندوق
+                  }
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    } @else {
+
+      <div class="empty-state">
+        🎁
+        <h2>
+          مفيش منتجات في القسم ده حاليًا
+        </h2>
+      </div>
+
+    }
+
+
+    <div class="page-actions">
+
+      <button
+        type="button"
+        class="back-btn"
+        (click)="goBack()"
+      >
+        رجوع
+      </button>
+
+      @if (selectedCount > 0) {
+
+        <button
+          type="button"
+          class="next-btn"
+          (click)="goToCustomize()"
+        >
+          🎁 تجهيز صندوق الهدايا
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>

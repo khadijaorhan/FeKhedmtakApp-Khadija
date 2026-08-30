@@ -1,0 +1,102 @@
+<section class="details-page">
+
+  <div class="container">
+
+    @if (product) {
+
+      <div class="details-card">
+
+        <div class="product-image">
+
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+          >
+
+        </div>
+
+
+        <div class="product-info">
+
+          <span class="category">
+            {{ product.category }}
+          </span>
+
+          <h1>
+            {{ product.name }}
+          </h1>
+
+
+          @if (product.rating) {
+
+            <div class="rating">
+              ⭐ {{ product.rating }}
+            </div>
+
+          }
+
+
+          <p class="description">
+            {{ product.description }}
+          </p>
+
+
+          <div class="price">
+            {{ product.price }}
+            <span>
+              جنيه
+            </span>
+          </div>
+
+
+          <div class="actions">
+
+            <button
+              type="button"
+              class="select-btn"
+              [class.selected]="isSelected"
+              (click)="toggleProduct()"
+            >
+
+              @if (isSelected) {
+                ✓ تم اختياره للصندوق
+              } @else {
+                + إضافة لصندوق الهدية
+              }
+
+            </button>
+
+
+            @if (isSelected) {
+
+              <button
+                type="button"
+                class="customize-btn"
+                (click)="goToCustomize()"
+              >
+                🎁 تجهيز صندوق الهدايا
+              </button>
+
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="back-btn"
+        (click)="goBack()"
+      >
+        <i class="bi bi-arrow-right"></i>
+        رجوع للمنتجات
+      </button>
+
+    }
+
+  </div>
+
+</section>

@@ -1,0 +1,83 @@
+<div class="products-grid">
+
+  @for (
+    product of products;
+    track product.id
+  ) {
+
+    <article
+      class="product-card"
+      [class.selected]="
+        isSelected(product.id)
+      "
+    >
+
+      <div class="product-image">
+
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+        >
+
+
+        @if (
+          isSelected(product.id)
+        ) {
+
+          <span class="selected-badge">
+            ✓ تم اختياره
+          </span>
+
+        }
+
+      </div>
+
+
+      <div class="product-content">
+
+        <h3>
+          {{ product.name }}
+        </h3>
+
+
+        <p>
+          {{ product.description }}
+        </p>
+
+
+        <strong>
+          {{ product.price }}
+
+          <span>
+            جنيه
+          </span>
+        </strong>
+
+
+        <button
+          type="button"
+          [class.selected-btn]="
+            isSelected(product.id)
+          "
+          (click)="
+            toggleProduct(product)
+          "
+        >
+
+          @if (
+            isSelected(product.id)
+          ) {
+            ✓ تم الاختيار
+          } @else {
+            + اختر للصندوق
+          }
+
+        </button>
+
+      </div>
+
+    </article>
+
+  }
+
+</div>

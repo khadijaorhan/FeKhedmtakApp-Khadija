@@ -1,0 +1,89 @@
+<article
+  class="gift-card"
+  [class.selected]="selected"
+>
+
+  <div
+    class="product-image"
+    (click)="openDetails()"
+  >
+
+    <img
+      [src]="product.image"
+      [alt]="product.name"
+    >
+
+
+    @if (selected) {
+
+      <span class="selected-badge">
+        ✓ تم اختياره
+      </span>
+
+    }
+
+  </div>
+
+
+  <div class="product-content">
+
+    <div class="product-info-top">
+
+      <span class="category">
+        {{ product.category }}
+      </span>
+
+
+      @if (product.rating) {
+
+        <span class="rating">
+          ⭐ {{ product.rating }}
+        </span>
+
+      }
+
+    </div>
+
+
+    <h3
+      (click)="openDetails()"
+    >
+      {{ product.name }}
+    </h3>
+
+
+    <p>
+      {{ product.description }}
+    </p>
+
+
+    <div class="product-footer">
+
+      <strong>
+        {{ product.price }}
+
+        <span>
+          جنيه
+        </span>
+      </strong>
+
+
+      <button
+        type="button"
+        [class.selected-btn]="selected"
+        (click)="toggleSelection()"
+      >
+
+        @if (selected) {
+          ✓ تم الاختيار
+        } @else {
+          + اختر للصندوق
+        }
+
+      </button>
+
+    </div>
+
+  </div>
+
+</article>

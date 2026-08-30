@@ -1,0 +1,34 @@
+<button
+  type="button"
+  class="category-card"
+  (click)="selectCategory()"
+>
+
+  <span class="category-icon">
+    {{ icon }}
+  </span>
+
+
+  <h3>
+    {{ name }}
+  </h3>
+
+
+  @if (description) {
+
+    <p>
+      {{ description }}
+    </p>
+
+  }
+
+
+  <span class="open-text">
+
+    عرض الهدايا
+
+    <i class="bi bi-arrow-left"></i>
+
+  </span>
+
+</button>

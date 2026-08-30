@@ -1,0 +1,275 @@
+<section class="customize-page">
+
+  <div class="container">
+
+    <div class="page-header">
+
+      <div class="header-icon">
+        🎁
+      </div>
+
+      <h1>
+        اختيار صندوق الهدية
+      </h1>
+
+      <p>
+        اختار شكل وحجم الصندوق المناسب للمنتجات اللي اخترتها.
+      </p>
+
+    </div>
+
+
+    <div class="selected-products-info">
+
+      <div>
+
+        <strong>
+          المنتجات المختارة
+        </strong>
+
+        <span>
+          {{ selectedProducts.length }}
+          منتج
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>
+          مجموع المنتجات
+        </strong>
+
+        <span>
+          {{ productsTotal }}
+          جنيه
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-title">
+
+      <h2>
+        الصناديق المتاحة
+      </h2>
+
+      <p>
+        اضغط على الصندوق اللي يناسبك.
+      </p>
+
+    </div>
+
+
+    @if (loading) {
+
+      <div class="loading-state">
+
+        <div class="spinner-border text-success"></div>
+
+        <p>
+          جاري تحميل الصناديق...
+        </p>
+
+      </div>
+
+    } @else if (errorMessage) {
+
+      <div class="empty-state">
+
+        <div class="empty-icon">
+          🎁
+        </div>
+
+        <h3>
+          {{ errorMessage }}
+        </h3>
+
+        <button
+          type="button"
+          class="retry-btn"
+          (click)="retryLoadingBoxes()"
+        >
+          إعادة المحاولة
+        </button>
+
+      </div>
+
+    } @else {
+
+      <div class="boxes-grid">
+
+        @for (
+          box of boxes;
+          track box.id
+        ) {
+
+          <button
+            type="button"
+            class="box-card"
+            [class.selected]="isSelected(box.id)"
+            (click)="selectBox(box)"
+          >
+
+            <div class="box-image">
+
+              <img
+                [src]="box.image"
+                [alt]="box.name"
+              >
+
+
+              @if (isSelected(box.id)) {
+
+                <div class="selected-badge">
+                  ✓ تم الاختيار
+                </div>
+
+              }
+
+            </div>
+
+
+            <div class="box-content">
+
+              <h3>
+                {{ box.name }}
+              </h3>
+
+
+              <span class="box-size">
+
+                @switch (box.size) {
+
+                  @case ('small') {
+                    صغير
+                  }
+
+                  @case ('medium') {
+                    متوسط
+                  }
+
+                  @case ('large') {
+                    كبير
+                  }
+
+                }
+
+              </span>
+
+
+              <div class="box-price">
+
+                {{ box.price }}
+
+                <span>
+                  جنيه
+                </span>
+
+              </div>
+
+            </div>
+
+          </button>
+
+        }
+
+      </div>
+
+    }
+
+
+    @if (selectedBox) {
+
+      <div class="summary-card">
+
+        <h3>
+          ملخص الاختيار
+        </h3>
+
+
+        <div class="summary-row">
+
+          <span>
+            المنتجات
+          </span>
+
+          <strong>
+            {{ productsTotal }}
+            جنيه
+          </strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span>
+            {{ selectedBox.name }}
+          </span>
+
+          <strong>
+            {{ selectedBox.price }}
+            جنيه
+          </strong>
+
+        </div>
+
+
+        <div class="summary-divider"></div>
+
+
+        <div class="summary-row total-row">
+
+          <span>
+            الإجمالي الحالي
+          </span>
+
+          <strong>
+            {{ finalTotal }}
+            جنيه
+          </strong>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <div class="page-actions">
+
+      <button
+        type="button"
+        class="back-btn"
+        (click)="goBack()"
+      >
+
+        <i class="bi bi-arrow-right"></i>
+
+        رجوع للمنتجات
+
+      </button>
+
+
+      <button
+        type="button"
+        class="next-btn"
+        [disabled]="!selectedBox"
+        (click)="goToPreview()"
+      >
+
+        انتقل للمعاينة
+
+        <i class="bi bi-arrow-left"></i>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
