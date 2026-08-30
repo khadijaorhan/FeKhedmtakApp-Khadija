@@ -1,0 +1,98 @@
+<div class="checkout-container" dir="rtl">
+  <!-- حالة نجاح الطلب -->
+  <div class="order-success-card" *ngIf="orderCompleted">
+    <div class="success-icon">🎉</div>
+    <h2>تم تأكيد طلبك بنجاح!</h2>
+    <p>شكراً لتسوقك معنا، جاري تجهيز الطلب وسنتواصل معك هاتفياً عند خروج المندوب.</p>
+    <a routerLink="/supermarket" class="btn-home">العودة للتسوق</a>
+  </div>
+
+  <!-- نموذج العنوان وملخص الفاتورة -->
+  <div class="checkout-grid" *ngIf="!orderCompleted">
+    <!-- استمارة بيانات التوصيل -->
+    <div class="form-section">
+      <div class="section-card">
+        <h3>📍 بيانات وعنوان التوصيل</h3>
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>الاسم بالكامل *</label>
+            <input type="text" [(ngModel)]="customer.fullName" name="fullName" placeholder="مثال: تسنيم محمود" required />
+          </div>
+
+          <div class="form-group">
+            <label>رقم الهاتف للتواصل *</label>
+            <input type="tel" [(ngModel)]="customer.phone" name="phone" placeholder="010XXXXXXXX" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>المدينة</label>
+              <select [(ngModel)]="customer.city" name="city">
+                <option value="العريش">العريش</option>
+                <option value="بئر العبد">بئر العبد</option>
+                <option value="الشيخ زويد">الشيخ زويد</option>
+              </select>
+            </div>
+            <div class="form-group flex-2">
+              <label>العنوان بالتفصيل *</label>
+              <input type="text" [(ngModel)]="customer.address" name="address" placeholder="اسم الشارع، رقم العمارة، الشقة" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>ملاحظات إضافية للتوصيل</label>
+            <textarea [(ngModel)]="customer.notes" name="notes" rows="2" placeholder="أي تعليمات للمندوب عند الوصول..."></textarea>
+          </div>
+
+          <h3 class="payment-title">💳 طريقة الدفع</h3>
+          <div class="payment-options">
+            <label class="payment-option" [class.selected]="customer.paymentMethod === 'cash'">
+              <input type="radio" [(ngModel)]="customer.paymentMethod" name="paymentMethod" value="cash" />
+              <span>💵 الدفع نقداً عند الاستلام (Cash on Delivery)</span>
+            </label>
+            <label class="payment-option" [class.selected]="customer.paymentMethod === 'card'">
+              <input type="radio" [(ngModel)]="customer.paymentMethod" name="paymentMethod" value="card" />
+              <span>💳 بطاقة بنكية (فيزا / ماستركارد)</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit" [disabled]="isSubmitting">
+            {{ isSubmitting ? 'جاري إرسال وتأكيد الطلب...' : 'تأكيد وإتمام الطلب' }}
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ملخص الفاتورة وقائمة المنتجات -->
+    <div class="summary-section">
+      <div class="section-card">
+        <h3>🛒 ملخص الفاتورة</h3>
+        <div class="order-items">
+          <div class="summary-item" *ngFor="let item of (cartItems$ | async)">
+            <img [src]="item.image" [alt]="item.name" />
+            <div class="item-info">
+              <h4>{{ item.name }}</h4>
+              <span class="qty">الكمية: {{ item.quantity }}</span>
+            </div>
+            <span class="price">{{ item.price * item.quantity }} ج.م</span>
+          </div>
+        </div>
+
+        <div class="bill-details">
+          <div class="bill-row">
+            <span>المجموع الفرعي:</span>
+            <span>{{ (totalPrice$ | async) }} ج.م</span>
+          </div>
+          <div class="bill-row">
+            <span>مصاريف التوصيل:</span>
+            <span>{{ shippingFee }} ج.م</span>
+          </div>
+          <div class="bill-row final-total">
+            <span>الإجمالي النهائي:</span>
+            <span>{{ ((totalPrice$ | async) ?? 0) + shippingFee }} ج.م</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

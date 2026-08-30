@@ -1,0 +1,398 @@
+<section class="catalog-page">
+
+  <div class="container">
+
+    <div class="catalog-header">
+
+      @if (recommendationMode) {
+
+        <h1>
+          الهدايا اللي رشحناها ليك
+        </h1>
+
+        <p>
+          اخترنا لك المنتجات المناسبة بناءً على اختياراتك.
+        </p>
+
+      } @else {
+
+        <h1>
+          اختار هديتك
+        </h1>
+
+        <p>
+          تصفح المنتجات واختار أكتر من منتج
+          عشان تضيفهم داخل صندوق الهدايا.
+        </p>
+
+      }
+
+    </div>
+
+
+    @if (recommendationMode) {
+
+      <div class="recommendation-banner">
+
+        <div class="banner-icon">
+          ✨
+        </div>
+
+        <div>
+
+          <strong>
+            ترشيحات مناسبة ليك
+          </strong>
+
+          <p>
+            المنتجات اللي قدامك اتفلترت تلقائيًا
+            حسب الشخص والمناسبة.
+          </p>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <div class="filters-card">
+
+      <div class="search-section">
+
+        <label>
+          البحث
+        </label>
+
+        <div class="search-input">
+
+          <i class="bi bi-search"></i>
+
+          <input
+            type="text"
+            placeholder="ابحث عن هدية..."
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="applyFilters()"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="category-section">
+
+        <label>
+          الأقسام
+        </label>
+
+        <div class="category-buttons">
+
+          @for (
+            category of categories;
+            track category.id
+          ) {
+
+            <button
+              type="button"
+              class="filter-chip"
+              [class.selected]="
+                selectedCategory === category.id
+              "
+              (click)="
+                selectCategory(category.id)
+              "
+            >
+
+              {{ category.icon }}
+
+              {{ category.name }}
+
+            </button>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="price-section"
+        [class.highlight-price]="
+          priceFilterMode
+        "
+      >
+
+        <label>
+          💰 السعر
+        </label>
+
+        <div class="price-inputs">
+
+          <div class="price-input">
+
+            <input
+              type="number"
+              min="0"
+              placeholder="من"
+              [(ngModel)]="minPrice"
+              (ngModelChange)="applyFilters()"
+            >
+
+            <span>
+              جنيه
+            </span>
+
+          </div>
+
+
+          <div class="price-separator">
+            إلى
+          </div>
+
+
+          <div class="price-input">
+
+            <input
+              type="number"
+              min="0"
+              placeholder="إلى"
+              [(ngModel)]="maxPrice"
+              (ngModelChange)="applyFilters()"
+            >
+
+            <span>
+              جنيه
+            </span>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="clear-filters-btn"
+            (click)="clearFilters()"
+          >
+
+            <i class="bi bi-arrow-counterclockwise"></i>
+
+            مسح الفلاتر
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="results-header">
+
+      <div>
+
+        <h2>
+          المنتجات
+        </h2>
+
+        <p>
+          {{ filteredProducts.length }}
+          منتج متاح
+        </p>
+
+      </div>
+
+    </div>
+
+
+    @if (
+      filteredProducts.length > 0
+    ) {
+
+      <div class="products-grid">
+
+        @for (
+          product of filteredProducts;
+          track product.id
+        ) {
+
+          <article
+            class="product-card"
+            [class.selected-product]="
+              isSelected(product.id)
+            "
+          >
+
+            <div class="product-image">
+
+              <img
+                [src]="product.image"
+                [alt]="product.name"
+              >
+
+              @if (
+                isSelected(product.id)
+              ) {
+
+                <div class="selected-badge">
+                  ✓ تم اختياره
+                </div>
+
+              }
+
+            </div>
+
+
+            <div class="product-content">
+
+              <div class="product-top">
+
+                <span class="product-category">
+                  {{ product.category }}
+                </span>
+
+                @if (product.rating) {
+
+                  <span class="rating">
+                    ⭐ {{ product.rating }}
+                  </span>
+
+                }
+
+              </div>
+
+
+              <h3>
+                {{ product.name }}
+              </h3>
+
+
+              <p class="description">
+                {{ product.description }}
+              </p>
+
+
+              <div class="product-footer">
+
+                <div class="price">
+
+                  {{ product.price }}
+
+                  <span>
+                    جنيه
+                  </span>
+
+                </div>
+
+
+                <button
+                  type="button"
+                  class="select-product-btn"
+                  [class.remove-btn]="
+                    isSelected(product.id)
+                  "
+                  (click)="
+                    toggleProduct(product)
+                  "
+                >
+
+                  @if (
+                    isSelected(product.id)
+                  ) {
+
+                    ✓ تم الاختيار
+
+                  } @else {
+
+                    + اختر للصندوق
+
+                  }
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    } @else {
+
+      <div class="empty-state">
+
+        <div class="empty-icon">
+          🎁
+        </div>
+
+        <h3>
+          مفيش منتجات مطابقة
+        </h3>
+
+        <p>
+          جرّب تغير البحث أو الفلاتر.
+        </p>
+
+        <button
+          type="button"
+          (click)="clearFilters()"
+        >
+          عرض المنتجات
+        </button>
+
+      </div>
+
+    }
+
+  </div>
+
+
+  @if (selectedCount > 0) {
+
+    <div class="selection-bar">
+
+      <div class="container">
+
+        <div class="selection-content">
+
+          <div class="selection-info">
+
+            <strong>
+              تم اختيار
+              {{ selectedCount }}
+              منتج
+            </strong>
+
+            <span>
+              إجمالي المنتجات:
+              {{ selectedTotal }}
+              جنيه
+            </span>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="customize-btn"
+            (click)="goToCustomize()"
+          >
+            🎁 تجهيز صندوق الهدايا
+
+            <i class="bi bi-arrow-left"></i>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
+</section>

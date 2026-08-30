@@ -1,0 +1,81 @@
+<section class="selector-section">
+
+  <div class="section-header">
+
+    <div class="icon">
+      💌
+    </div>
+
+    <div>
+
+      <h2>
+        بطاقة التهنئة
+      </h2>
+
+      <p>
+        اختار الكارت المناسب للهدية.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="options-grid">
+
+    <button
+      type="button"
+      class="option-card"
+      [class.selected]="!selectedCard"
+      (click)="selectNone()"
+    >
+
+      <span class="option-icon">
+        ✕
+      </span>
+
+      <strong>
+        بدون كارت
+      </strong>
+
+      <small>
+        0 جنيه
+      </small>
+
+    </button>
+
+
+    @for (
+      card of options;
+      track card.id
+    ) {
+
+      <button
+        type="button"
+        class="option-card"
+        [class.selected]="
+          isSelected(card.id)
+        "
+        (click)="selectCard(card)"
+      >
+
+        <span class="option-icon">
+          💌
+        </span>
+
+        <strong>
+          {{ card.name }}
+        </strong>
+
+        <small>
+          {{ card.price }}
+          جنيه
+        </small>
+
+      </button>
+
+    }
+
+  </div>
+
+</section>

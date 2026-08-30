@@ -1,0 +1,83 @@
+<section class="selector-section">
+
+  <div class="section-header">
+
+    <div class="icon">
+      🎀
+    </div>
+
+    <div>
+
+      <h2>
+        اختر التغليف
+      </h2>
+
+      <p>
+        اختياري — تقدر تكمل بدون تغليف إضافي.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="options-grid">
+
+    <button
+      type="button"
+      class="option-card"
+      [class.selected]="!selectedWrapping"
+      (click)="selectNone()"
+    >
+
+      <span class="option-icon">
+        ✕
+      </span>
+
+      <strong>
+        بدون تغليف
+      </strong>
+
+      <small>
+        0 جنيه
+      </small>
+
+    </button>
+
+
+    @for (
+      wrapping of options;
+      track wrapping.id
+    ) {
+
+      <button
+        type="button"
+        class="option-card"
+        [class.selected]="
+          isSelected(wrapping.id)
+        "
+        (click)="
+          selectWrapping(wrapping)
+        "
+      >
+
+        <span class="option-icon">
+          🎀
+        </span>
+
+        <strong>
+          {{ wrapping.name }}
+        </strong>
+
+        <small>
+          {{ wrapping.price }}
+          جنيه
+        </small>
+
+      </button>
+
+    }
+
+  </div>
+
+</section>
