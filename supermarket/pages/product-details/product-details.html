@@ -1,0 +1,78 @@
+<div class="product-details-container" dir="rtl" *ngIf="product">
+  <!-- مسار التنقل العلوي -->
+  <nav class="breadcrumb">
+    <a routerLink="/supermarket">الرئيسية</a>
+    <span>/</span>
+    <a routerLink="/supermarket/products">كل المنتجات</a>
+    <span>/</span>
+    <span class="active">{{ product.name }}</span>
+  </nav>
+
+  <div class="details-grid">
+    <!-- صورة المنتج والعروض -->
+    <div class="image-box">
+      <img [src]="product.image" [alt]="product.name" />
+      <span class="discount-badge" *ngIf="product.discount">{{ product.discount }}</span>
+    </div>
+
+    <!-- بيانات وتفاصيل المنتج -->
+    <div class="info-box">
+      <span class="category-tag">{{ product.category }}</span>
+      <h1 class="product-title">{{ product.name }}</h1>
+
+      <div class="rating-box">
+        <span class="star">★</span>
+        <span class="rating-value">{{ product.rating }}</span>
+        <span class="reviews-count">(تقييمات ممتازة من العملاء)</span>
+      </div>
+
+      <div class="price-box">
+        <span class="current-price">{{ product.price }} ج.م</span>
+        <span class="old-price" *ngIf="product.oldPrice">{{ product.oldPrice }} ج.م</span>
+      </div>
+
+      <p class="description">{{ product.description }}</p>
+
+      <!-- التحكم في الكمية وزر الإضافة -->
+      <div class="purchase-actions">
+        <div class="quantity-controller">
+          <button type="button" (click)="decreaseQuantity()">-</button>
+          <span>{{ quantity }}</span>
+          <button type="button" (click)="increaseQuantity()">+</button>
+        </div>
+
+        <button type="button" class="btn-add-cart" (click)="addToCart()">
+          🛒 أضف إلى السلة ({{ product.price * quantity }} ج.م)
+        </button>
+      </div>
+
+      <!-- إشعار التأكيد عند الإضافة -->
+      <div class="alert-success" *ngIf="addedSuccess">
+        ✓ تمت إضافة {{ quantity }} قطعة من المنتج إلى سلة مشترياتك بنجاح!
+      </div>
+
+      <!-- مميزات إضافية للمتجر -->
+      <div class="features-list">
+        <div class="feature-item">
+          <span class="icon">🚀</span>
+          <div>
+            <strong>توصيل فوري</strong>
+            <p>يصلك طازجاً خلال 30 إلى 45 دقيقة داخل مدينتك.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🛡️</span>
+          <div>
+            <strong>ضمان الجودة والاسترجاع</strong>
+            <p>إمكانية فحص المنتجات والاسترجاع الفوري مع مندوب التوصيل.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- حالة التحميل لو لم تصل البيانات بعد -->
+<div class="loading-box" *ngIf="!product" dir="rtl">
+  <p>جاري تحميل تفاصيل المنتج...</p>
+</div>

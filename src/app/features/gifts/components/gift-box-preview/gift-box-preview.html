@@ -1,0 +1,308 @@
+<section class="preview-page">
+
+  <div class="container">
+
+    <div class="page-header">
+
+      <div class="header-icon">
+        🎁
+      </div>
+
+      <h1>
+        @if (isEditing) {
+          تعديل صندوق الهدية
+        } @else {
+          معاينة صندوق الهدية
+        }
+      </h1>
+
+      <p>
+        راجع محتويات الهدية وأضف اللمسات الأخيرة قبل التأكيد.
+      </p>
+
+    </div>
+
+
+    @if (selectedBox) {
+
+      <div class="box-preview-card">
+
+        <div class="selected-box-image">
+
+          <img
+            [src]="selectedBox.image"
+            [alt]="selectedBox.name"
+          >
+
+        </div>
+
+
+        <div class="selected-box-info">
+
+          <span>
+            الصندوق المختار
+          </span>
+
+          <h2>
+            {{ selectedBox.name }}
+          </h2>
+
+          <strong>
+            {{ selectedBox.price }}
+            جنيه
+          </strong>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <div class="contents-section">
+
+      <div class="section-heading">
+
+        <h2>
+          محتويات الصندوق
+        </h2>
+
+        <span>
+          {{ selectedProducts.length }}
+          منتج
+        </span>
+
+      </div>
+
+
+      @for (
+        group of productGroups;
+        track group.category
+      ) {
+
+        <div class="category-group">
+
+          <div class="category-title">
+
+            <span class="category-icon">
+              {{ group.icon }}
+            </span>
+
+            <h3>
+              {{ group.name }}
+            </h3>
+
+          </div>
+
+
+          <div class="category-products">
+
+            @for (
+              product of group.products;
+              track product.id
+            ) {
+
+              <div class="preview-product">
+
+                <div class="product-image">
+
+                  <img
+                    [src]="product.image"
+                    [alt]="product.name"
+                  >
+
+                </div>
+
+
+                <div class="product-details">
+
+                  <h4>
+                    {{ product.name }}
+                  </h4>
+
+                  <p>
+                    {{ product.description }}
+                  </p>
+
+                </div>
+
+
+                <div class="product-price">
+
+                  {{ product.price }}
+
+                  <span>
+                    جنيه
+                  </span>
+
+                </div>
+
+              </div>
+
+            }
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+
+    <div class="customization-section">
+
+      <app-wrapping-selector
+        [options]="wrappingOptions"
+        [selectedWrapping]="selectedWrapping"
+        (wrappingSelected)="onWrappingSelected($event)"
+      />
+
+    </div>
+
+
+    <div class="customization-section">
+
+      <app-greeting-card-selector
+        [options]="cardOptions"
+        [selectedCard]="selectedCard"
+        (cardSelected)="onCardSelected($event)"
+      />
+
+    </div>
+
+
+    <div class="customization-section">
+
+      <app-gift-message
+        [message]="personalMessage"
+        [maxLength]="250"
+        (messageChange)="onMessageChange($event)"
+      />
+
+    </div>
+
+
+    <div class="customization-section">
+
+      <app-delivery-date-picker
+        [deliveryDate]="deliveryDate"
+        (deliveryDateChange)="onDeliveryDateChange($event)"
+      />
+
+    </div>
+
+
+    <div class="summary-wrapper">
+
+      <app-gift-summary
+        [boxPrice]="boxPrice"
+        [productsPrice]="productsTotal"
+        [wrappingPrice]="wrappingPrice"
+        [cardPrice]="cardPrice"
+      />
+
+    </div>
+
+
+    @if (confirmationMessage) {
+
+      <div class="success-card">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <div>
+
+          <h3>
+            @if (isEditing) {
+              تم تحديث صندوق الهدية
+            } @else {
+              تم إضافة صندوق الهدية إلى السلة
+            }
+          </h3>
+
+          <p>
+            {{ confirmationMessage }}
+          </p>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <div class="page-actions">
+
+      <button
+        type="button"
+        class="back-btn"
+        (click)="goBack()"
+      >
+
+        <i class="bi bi-arrow-right"></i>
+
+        رجوع
+
+      </button>
+
+
+      @if (!addedToCart) {
+
+        <button
+          type="button"
+          class="confirm-btn"
+          (click)="confirmGiftBox()"
+        >
+
+          @if (isEditing) {
+
+            <i class="bi bi-check2-circle"></i>
+
+            حفظ التعديلات
+
+          } @else {
+
+            <i class="bi bi-cart-plus"></i>
+
+            تأكيد وإضافة للسلة
+
+          }
+
+        </button>
+
+      }
+
+
+      @if (addedToCart) {
+
+        <button
+          type="button"
+          class="confirm-btn"
+          (click)="goToCart()"
+        >
+
+          <i class="bi bi-cart3"></i>
+
+          الذهاب إلى السلة
+
+        </button>
+
+
+        <button
+          type="button"
+          class="shopping-btn"
+          (click)="continueShopping()"
+        >
+          🎁 متابعة التسوق
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>

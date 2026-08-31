@@ -1,0 +1,185 @@
+:host {
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --primary-soft: #ecfdf5;
+  --primary-border: #a7f3d0;
+
+  --dark: #1f2937;
+  --muted: #6b7280;
+  --light: #f8faf9;
+
+  display: block;
+}
+
+
+.offers-page {
+  min-height: 100vh;
+
+  padding: 55px 0 80px;
+
+  background-color: var(--light);
+
+  direction: rtl;
+}
+
+
+.page-header {
+  margin-bottom: 35px;
+
+  text-align: center;
+}
+
+
+.header-icon {
+  margin-bottom: 12px;
+
+  font-size: 48px;
+}
+
+
+.page-header h1 {
+  margin-bottom: 8px;
+
+  color: var(--dark);
+
+  font-size: 34px;
+  font-weight: 700;
+}
+
+
+.page-header p {
+  color: var(--muted);
+}
+
+
+.offers-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+.offer-card {
+  padding: 28px;
+
+  background-color: white;
+
+  border:
+    2px solid
+    var(--primary-border);
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  transition: 0.2s ease;
+}
+
+
+.offer-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 10px 24px
+    rgba(16, 185, 129, 0.1);
+}
+
+
+.offer-icon {
+  margin-bottom: 12px;
+
+  font-size: 40px;
+}
+
+
+.discount {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  padding: 6px 12px;
+
+  background-color: var(--primary-soft);
+
+  border-radius: 50px;
+
+  color: var(--primary-dark);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.offer-card h2 {
+  margin-bottom: 10px;
+
+  color: var(--dark);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.offer-card p {
+  min-height: 70px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+.offer-card button,
+.back-btn {
+  padding: 10px 22px;
+
+  background-color: white;
+
+  border: 2px solid var(--primary);
+
+  border-radius: 50px;
+
+  color: var(--primary);
+
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+
+.offer-card button:hover,
+.back-btn:hover {
+  background-color: var(--primary);
+
+  color: white;
+}
+
+
+.page-actions {
+  margin-top: 35px;
+}
+
+
+@media (max-width: 992px) {
+
+  .offers-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 576px) {
+
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

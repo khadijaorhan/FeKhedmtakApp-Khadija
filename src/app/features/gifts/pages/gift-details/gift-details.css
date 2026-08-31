@@ -1,0 +1,179 @@
+:host {
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --primary-soft: #ecfdf5;
+  --primary-border: #a7f3d0;
+
+  --dark: #1f2937;
+  --muted: #6b7280;
+  --light: #f8faf9;
+  --white: #ffffff;
+  --border: #e5e7eb;
+
+  display: block;
+}
+
+.details-page {
+  min-height: 100vh;
+
+  padding: 60px 0 80px;
+
+  background-color: var(--light);
+
+  direction: rtl;
+}
+
+.details-card {
+  overflow: hidden;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  background-color: white;
+
+  border: 1px solid var(--border);
+  border-radius: 22px;
+
+  box-shadow:
+    0 6px 25px rgba(0, 0, 0, 0.06);
+}
+
+.product-image {
+  min-height: 500px;
+
+  background-color: #f3f4f6;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 45px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.category {
+  align-self: flex-start;
+
+  margin-bottom: 12px;
+
+  padding: 6px 12px;
+
+  background-color: var(--primary-soft);
+
+  border-radius: 50px;
+
+  color: var(--primary-dark);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.product-info h1 {
+  margin-bottom: 12px;
+
+  color: var(--dark);
+
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.rating {
+  margin-bottom: 20px;
+
+  color: var(--muted);
+}
+
+.description {
+  margin-bottom: 25px;
+
+  color: var(--muted);
+
+  line-height: 1.9;
+}
+
+.price {
+  margin-bottom: 30px;
+
+  color: var(--primary-dark);
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.price span {
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.select-btn,
+.customize-btn {
+  min-height: 50px;
+
+  background-color: white;
+
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+
+  color: var(--primary);
+
+  font-weight: 700;
+}
+
+.select-btn:hover,
+.customize-btn:hover,
+.select-btn.selected {
+  background-color: var(--primary);
+
+  color: white;
+}
+
+.back-btn {
+  margin-top: 25px;
+
+  padding: 10px 22px;
+
+  background-color: white;
+
+  border: 2px solid var(--primary-border);
+  border-radius: 50px;
+
+  color: var(--dark);
+}
+
+@media (max-width: 768px) {
+
+  .details-card {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image {
+    min-height: 320px;
+  }
+
+  .product-info {
+    padding: 28px 20px;
+  }
+
+  .product-info h1 {
+    font-size: 28px;
+  }
+}

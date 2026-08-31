@@ -1,0 +1,70 @@
+<div class="supermarket-container">
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-tag">🌟 عروض التوفير الأسبوعية</span>
+      <h1 class="hero-title">كل طلبات بيتك طازجة وبتوصل لحد بابك</h1>
+      <p class="hero-subtitle">أفضل الخصومات اليومية على الفواكه، الخضروات، ومنتجات الألبان الطازجة</p>
+      <div class="hero-actions">
+        <a routerLink="/supermarket/products" class="btn-primary">تسوق كل المنتجات</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Bar -->
+  <section class="section categories-section">
+    <div class="section-header">
+      <h2 class="section-title">تسوق حسب القسم</h2>
+      <a routerLink="/supermarket/products" class="view-all">عرض كل الأقسام ←</a>
+    </div>
+    <div class="categories-list">
+      <a 
+        *ngFor="let cat of categories"
+        [routerLink]="['/supermarket/products']"
+        [queryParams]="{ category: cat }"
+        class="category-chip">
+        <span>{{ cat }}</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Hot Offers Section -->
+  <section class="section offers-section" *ngIf="offers.length > 0">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">🔥 أقوى العروض والخصومات</h2>
+        <p class="section-desc">وفر أكثر مع عروض السوبرماركت المميزة</p>
+      </div>
+    </div>
+    <div class="products-grid">
+      <app-product-card 
+        *ngFor="let item of offers" 
+        [product]="item">
+      </app-product-card>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="section featured-section" *ngIf="featuredProducts.length > 0">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">⭐ المنتجات الأكثر طلباً</h2>
+        <p class="section-desc">أعلى تقييمات واختيارات عملائنا اليومية</p>
+      </div>
+    </div>
+    <div class="products-grid">
+      <app-product-card 
+        *ngFor="let item of featuredProducts" 
+        [product]="item">
+      </app-product-card>
+    </div>
+  </section>
+
+  <!-- زر عائم جانبي لفتح السلة في أي وقت -->
+  <button class="floating-cart-btn" (click)="openCart()" style="position: fixed; bottom: 30px; left: 30px; z-index: 1000; background: #2e7d32; color: #fff; border: none; border-radius: 50px; padding: 14px 24px; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;">
+    🛒 عرض السلة
+  </button>
+</div>
+
+<!-- مكون درج السلة الجانبي -->
+<app-cart-drawer [isOpen]="isCartOpen" (closeDrawer)="closeCart()"></app-cart-drawer>

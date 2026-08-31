@@ -1,0 +1,830 @@
+{
+  "categories": [
+    {
+      "id": "flowers",
+      "name": "ورد",
+      "icon": "🌹"
+    },
+    {
+      "id": "chocolates",
+      "name": "شوكولاتة",
+      "icon": "🍫"
+    },
+    {
+      "id": "perfumes",
+      "name": "عطور",
+      "icon": "🌸"
+    },
+    {
+      "id": "candles",
+      "name": "شموع",
+      "icon": "🕯️"
+    },
+    {
+      "id": "accessories",
+      "name": "إكسسوارات",
+      "icon": "🎀"
+    },
+    {
+      "id": "clothes",
+      "name": "ملابس",
+      "icon": "👕"
+    },
+    {
+      "id": "toys",
+      "name": "ألعاب",
+      "icon": "🧸"
+    }
+  ],
+
+  "products": [
+    {
+      "id": "flower-01",
+      "name": "باقة ورد حمراء",
+      "description": "باقة ورد حمراء أنيقة مناسبة للحظات والمناسبات المميزة.",
+      "price": 450,
+      "image": "assets/images/gifts/flowers/flower-01.jpg",
+      "category": "flowers",
+      "rating": 4.8,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "congratulations",
+        "thanks",
+        "love",
+        "apology",
+        "none"
+      ]
+    },
+    {
+      "id": "flower-02",
+      "name": "باقة ورد وردية",
+      "description": "باقة ورد ناعمة بتصميم بسيط وأنيق.",
+      "price": 380,
+      "image": "assets/images/gifts/flowers/flower-02.jpg",
+      "category": "flowers",
+      "rating": 4.7,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "love",
+        "apology",
+        "none"
+      ]
+    },
+    {
+      "id": "flower-03",
+      "name": "باقة ورد بيضاء",
+      "description": "باقة ورد بيضاء مناسبة للتهنئة والشكر والمناسبات الهادئة.",
+      "price": 420,
+      "image": "assets/images/gifts/flowers/flower-03.jpg",
+      "category": "flowers",
+      "rating": 4.6,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "graduation",
+        "congratulations",
+        "thanks",
+        "apology",
+        "none"
+      ]
+    },
+    {
+      "id": "flower-04",
+      "name": "باقة ورد ملونة",
+      "description": "تشكيلة ورد ملونة مناسبة لأعياد الميلاد والتهنئة.",
+      "price": 500,
+      "image": "assets/images/gifts/flowers/flower-04.jpg",
+      "category": "flowers",
+      "rating": 4.7,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "flower-05",
+      "name": "باقة ورد فاخرة",
+      "description": "باقة ورد بتنسيق فاخر للمناسبات الخاصة.",
+      "price": 750,
+      "image": "assets/images/gifts/flowers/flower-05.jpg",
+      "category": "flowers",
+      "rating": 4.9,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "love",
+        "apology",
+        "congratulations"
+      ]
+    },
+    {
+      "id": "flower-06",
+      "name": "باقة ورد كلاسيكية",
+      "description": "تنسيق ورد كلاسيكي مناسب كهدية بسيطة وأنيقة.",
+      "price": 350,
+      "image": "assets/images/gifts/flowers/flower-06.jpg",
+      "category": "flowers",
+      "rating": 4.5,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "thanks",
+        "congratulations",
+        "none"
+      ]
+    },
+
+    {
+      "id": "chocolate-01",
+      "name": "بوكس شوكولاتة فاخر",
+      "description": "تشكيلة شوكولاتة مناسبة لمختلف المناسبات.",
+      "price": 320,
+      "image": "assets/images/gifts/chocolates/chocolate-01.jpg",
+      "category": "chocolates",
+      "rating": 4.9,
+      "suitableFor": ["male", "female", "boy", "girl"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "love",
+        "apology",
+        "none"
+      ]
+    },
+    {
+      "id": "chocolate-02",
+      "name": "شوكولاتة مشكلة",
+      "description": "مجموعة متنوعة من قطع الشوكولاتة.",
+      "price": 250,
+      "image": "assets/images/gifts/chocolates/chocolate-02.jpg",
+      "category": "chocolates",
+      "rating": 4.5,
+      "suitableFor": ["male", "female", "boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "chocolate-03",
+      "name": "بوكس شوكولاتة صغير",
+      "description": "بوكس صغير مناسب للإضافة داخل صندوق الهدايا.",
+      "price": 180,
+      "image": "assets/images/gifts/chocolates/chocolate-03.jpg",
+      "category": "chocolates",
+      "rating": 4.4,
+      "suitableFor": ["male", "female", "boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "chocolate-04",
+      "name": "بوكس شوكولاتة كبير",
+      "description": "تشكيلة كبيرة من الشوكولاتة لمحبي الحلويات.",
+      "price": 550,
+      "image": "assets/images/gifts/chocolates/chocolate-04.jpg",
+      "category": "chocolates",
+      "rating": 4.8,
+      "suitableFor": ["male", "female", "boy", "girl"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "congratulations",
+        "thanks",
+        "love",
+        "none"
+      ]
+    },
+    {
+      "id": "chocolate-05",
+      "name": "شوكولاتة مميزة",
+      "description": "قطع شوكولاتة مختارة بعناية لتقديمها كهدية.",
+      "price": 400,
+      "image": "assets/images/gifts/chocolates/chocolate-05.jpg",
+      "category": "chocolates",
+      "rating": 4.7,
+      "suitableFor": ["male", "female", "boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "apology",
+        "none"
+      ]
+    },
+    {
+      "id": "chocolate-06",
+      "name": "شوكولاتة كلاسيكية",
+      "description": "اختيار بسيط ومناسب كإضافة لأي صندوق هدايا.",
+      "price": 150,
+      "image": "assets/images/gifts/chocolates/chocolate-06.jpg",
+      "category": "chocolates",
+      "rating": 4.3,
+      "suitableFor": ["male", "female", "boy", "girl"],
+      "occasions": [
+        "birthday",
+        "thanks",
+        "congratulations",
+        "none"
+      ]
+    },
+
+    {
+      "id": "perfume-01",
+      "name": "عطر رجالي",
+      "description": "عطر رجالي أنيق مناسب للهدايا والمناسبات.",
+      "price": 950,
+      "image": "assets/images/gifts/perfumes/perfume-01.jpg",
+      "category": "perfumes",
+      "rating": 4.8,
+      "suitableFor": ["male"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "love",
+        "none"
+      ]
+    },
+    {
+      "id": "perfume-02",
+      "name": "عطر نسائي",
+      "description": "عطر نسائي مميز مناسب للهدايا.",
+      "price": 1050,
+      "image": "assets/images/gifts/perfumes/perfume-02.jpg",
+      "category": "perfumes",
+      "rating": 4.9,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "love",
+        "apology",
+        "none"
+      ]
+    },
+    {
+      "id": "perfume-03",
+      "name": "عطر كلاسيكي",
+      "description": "عطر بطابع كلاسيكي مناسب للرجال والنساء.",
+      "price": 850,
+      "image": "assets/images/gifts/perfumes/perfume-03.jpg",
+      "category": "perfumes",
+      "rating": 4.6,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "perfume-04",
+      "name": "عطر رجالي فاخر",
+      "description": "رائحة رجالية فاخرة للمناسبات المهمة.",
+      "price": 1500,
+      "image": "assets/images/gifts/perfumes/perfume-04.jpg",
+      "category": "perfumes",
+      "rating": 4.9,
+      "suitableFor": ["male"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "graduation",
+        "love",
+        "congratulations"
+      ]
+    },
+    {
+      "id": "perfume-05",
+      "name": "عطر نسائي فاخر",
+      "description": "عطر نسائي فاخر برائحة مميزة.",
+      "price": 1600,
+      "image": "assets/images/gifts/perfumes/perfume-05.jpg",
+      "category": "perfumes",
+      "rating": 4.9,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "graduation",
+        "love",
+        "congratulations",
+        "apology"
+      ]
+    },
+    {
+      "id": "perfume-06",
+      "name": "عطر يومي",
+      "description": "عطر عملي للاستخدام اليومي ومناسب كهدية.",
+      "price": 700,
+      "image": "assets/images/gifts/perfumes/perfume-06.jpg",
+      "category": "perfumes",
+      "rating": 4.5,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "thanks",
+        "congratulations",
+        "none"
+      ]
+    },
+
+    {
+      "id": "candle-01",
+      "name": "شمعة عطرية",
+      "description": "شمعة عطرية بتصميم هادئ ومميز.",
+      "price": 220,
+      "image": "assets/images/gifts/candles/candle-01.jpg",
+      "category": "candles",
+      "rating": 4.6,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "thanks",
+        "love",
+        "apology",
+        "none"
+      ]
+    },
+    {
+      "id": "candle-02",
+      "name": "شمعة ديكور",
+      "description": "شمعة ديكور أنيقة مناسبة للإضافة داخل الصندوق.",
+      "price": 180,
+      "image": "assets/images/gifts/candles/candle-02.jpg",
+      "category": "candles",
+      "rating": 4.4,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "candle-03",
+      "name": "شمعة فانيليا",
+      "description": "شمعة عطرية برائحة الفانيليا الهادئة.",
+      "price": 260,
+      "image": "assets/images/gifts/candles/candle-03.jpg",
+      "category": "candles",
+      "rating": 4.7,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "love",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "candle-04",
+      "name": "شمعة رومانسية",
+      "description": "شمعة مناسبة للهدايا واللحظات الرومانسية.",
+      "price": 300,
+      "image": "assets/images/gifts/candles/candle-04.jpg",
+      "category": "candles",
+      "rating": 4.8,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "anniversary",
+        "love",
+        "apology"
+      ]
+    },
+    {
+      "id": "candle-05",
+      "name": "شمعة فاخرة",
+      "description": "شمعة بتصميم فاخر ورائحة مميزة.",
+      "price": 450,
+      "image": "assets/images/gifts/candles/candle-05.jpg",
+      "category": "candles",
+      "rating": 4.9,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "thanks",
+        "love",
+        "none"
+      ]
+    },
+    {
+      "id": "candle-06",
+      "name": "شمعة صغيرة",
+      "description": "شمعة صغيرة مناسبة كإضافة لصندوق الهدايا.",
+      "price": 120,
+      "image": "assets/images/gifts/candles/candle-06.jpg",
+      "category": "candles",
+      "rating": 4.3,
+      "suitableFor": ["male", "female"],
+      "occasions": [
+        "birthday",
+        "thanks",
+        "none"
+      ]
+    },
+
+    {
+      "id": "accessory-01",
+      "name": "إكسسوار نسائي",
+      "description": "إكسسوار أنيق مناسب كهدية.",
+      "price": 350,
+      "image": "assets/images/gifts/accessories/accessory-01.jpg",
+      "category": "accessories",
+      "rating": 4.7,
+      "suitableFor": ["female", "girl"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "accessory-02",
+      "name": "إكسسوار رجالي",
+      "description": "إكسسوار بسيط وأنيق مناسب للرجال.",
+      "price": 400,
+      "image": "assets/images/gifts/accessories/accessory-02.jpg",
+      "category": "accessories",
+      "rating": 4.5,
+      "suitableFor": ["male"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "accessory-03",
+      "name": "إكسسوار أطفال",
+      "description": "إكسسوار لطيف مناسب للأطفال.",
+      "price": 190,
+      "image": "assets/images/gifts/accessories/accessory-03.jpg",
+      "category": "accessories",
+      "rating": 4.6,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "accessory-04",
+      "name": "إكسسوار نسائي فاخر",
+      "description": "قطعة إكسسوار مميزة للمناسبات الخاصة.",
+      "price": 650,
+      "image": "assets/images/gifts/accessories/accessory-04.jpg",
+      "category": "accessories",
+      "rating": 4.8,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "anniversary",
+        "graduation",
+        "love",
+        "congratulations"
+      ]
+    },
+    {
+      "id": "accessory-05",
+      "name": "إكسسوار رجالي مميز",
+      "description": "قطعة أنيقة مناسبة لهدايا الرجال.",
+      "price": 600,
+      "image": "assets/images/gifts/accessories/accessory-05.jpg",
+      "category": "accessories",
+      "rating": 4.7,
+      "suitableFor": ["male"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "thanks"
+      ]
+    },
+    {
+      "id": "accessory-06",
+      "name": "إكسسوار أطفال ملون",
+      "description": "إكسسوار بسيط وملون مناسب للأطفال.",
+      "price": 150,
+      "image": "assets/images/gifts/accessories/accessory-06.jpg",
+      "category": "accessories",
+      "rating": 4.4,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "none"
+      ]
+    },
+
+    {
+      "id": "clothes-01",
+      "name": "قطعة ملابس رجالية",
+      "description": "قطعة ملابس مناسبة كهدية للرجال.",
+      "price": 650,
+      "image": "assets/images/gifts/clothes/clothes-01.jpg",
+      "category": "clothes",
+      "rating": 4.5,
+      "suitableFor": ["male"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "none"
+      ]
+    },
+    {
+      "id": "clothes-02",
+      "name": "قطعة ملابس نسائية",
+      "description": "قطعة ملابس أنيقة مناسبة كهدية للنساء.",
+      "price": 700,
+      "image": "assets/images/gifts/clothes/clothes-02.jpg",
+      "category": "clothes",
+      "rating": 4.6,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "none"
+      ]
+    },
+    {
+      "id": "clothes-03",
+      "name": "ملابس رجالية كلاسيكية",
+      "description": "اختيار كلاسيكي وعملي للرجال.",
+      "price": 850,
+      "image": "assets/images/gifts/clothes/clothes-03.jpg",
+      "category": "clothes",
+      "rating": 4.7,
+      "suitableFor": ["male"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "clothes-04",
+      "name": "ملابس نسائية مميزة",
+      "description": "اختيار أنيق ومميز للنساء.",
+      "price": 950,
+      "image": "assets/images/gifts/clothes/clothes-04.jpg",
+      "category": "clothes",
+      "rating": 4.8,
+      "suitableFor": ["female"],
+      "occasions": [
+        "birthday",
+        "graduation",
+        "congratulations",
+        "love",
+        "none"
+      ]
+    },
+    {
+      "id": "clothes-05",
+      "name": "ملابس أطفال",
+      "description": "قطعة ملابس لطيفة ومناسبة للأطفال.",
+      "price": 400,
+      "image": "assets/images/gifts/clothes/clothes-05.jpg",
+      "category": "clothes",
+      "rating": 4.6,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "none"
+      ]
+    },
+    {
+      "id": "clothes-06",
+      "name": "ملابس أطفال مميزة",
+      "description": "قطعة مميزة مناسبة كهدية للأطفال.",
+      "price": 550,
+      "image": "assets/images/gifts/clothes/clothes-06.jpg",
+      "category": "clothes",
+      "rating": 4.7,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+
+    {
+      "id": "toy-01",
+      "name": "دبدوب هدية",
+      "description": "دبدوب لطيف مناسب لهدايا الأطفال.",
+      "price": 280,
+      "image": "assets/images/gifts/toys/toy-01.jpg",
+      "category": "toys",
+      "rating": 4.8,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "toy-02",
+      "name": "لعبة أطفال",
+      "description": "لعبة ممتعة مناسبة للأطفال.",
+      "price": 350,
+      "image": "assets/images/gifts/toys/toy-02.jpg",
+      "category": "toys",
+      "rating": 4.7,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "none"
+      ]
+    },
+    {
+      "id": "toy-03",
+      "name": "هدية أطفال صغيرة",
+      "description": "هدية بسيطة يمكن إضافتها داخل صندوق الهدايا للأطفال.",
+      "price": 160,
+      "image": "assets/images/gifts/toys/toy-03.jpg",
+      "category": "toys",
+      "rating": 4.4,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "toy-04",
+      "name": "لعبة تعليمية",
+      "description": "لعبة مسلية تساعد الطفل على التعلم والاستكشاف.",
+      "price": 450,
+      "image": "assets/images/gifts/toys/toy-04.jpg",
+      "category": "toys",
+      "rating": 4.8,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "thanks",
+        "none"
+      ]
+    },
+    {
+      "id": "toy-05",
+      "name": "دبدوب كبير",
+      "description": "دبدوب كبير وناعم مناسب لهدايا الأطفال.",
+      "price": 600,
+      "image": "assets/images/gifts/toys/toy-05.jpg",
+      "category": "toys",
+      "rating": 4.9,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "none"
+      ]
+    },
+    {
+      "id": "toy-06",
+      "name": "لعبة صغيرة",
+      "description": "لعبة بسيطة يمكن إضافتها داخل صندوق الهدية.",
+      "price": 130,
+      "image": "assets/images/gifts/toys/toy-06.jpg",
+      "category": "toys",
+      "rating": 4.3,
+      "suitableFor": ["boy", "girl"],
+      "occasions": [
+        "birthday",
+        "congratulations",
+        "none"
+      ]
+    }
+  ],
+
+  "boxes": [
+    {
+      "id": "box-01",
+      "name": "الصندوق الكلاسيكي",
+      "price": 150,
+      "image": "assets/images/gifts/boxes/box-01.jpg",
+      "size": "small"
+    },
+    {
+      "id": "box-02",
+      "name": "الصندوق الأنيق",
+      "price": 180,
+      "image": "assets/images/gifts/boxes/box-02.jpg",
+      "size": "small"
+    },
+    {
+      "id": "box-03",
+      "name": "الصندوق المتوسط",
+      "price": 220,
+      "image": "assets/images/gifts/boxes/box-03.jpg",
+      "size": "medium"
+    },
+    {
+      "id": "box-04",
+      "name": "الصندوق المميز",
+      "price": 260,
+      "image": "assets/images/gifts/boxes/box-04.jpg",
+      "size": "medium"
+    },
+    {
+      "id": "box-05",
+      "name": "الصندوق الكبير",
+      "price": 320,
+      "image": "assets/images/gifts/boxes/box-05.jpg",
+      "size": "large"
+    },
+    {
+      "id": "box-06",
+      "name": "الصندوق الفاخر",
+      "price": 400,
+      "image": "assets/images/gifts/boxes/box-06.jpg",
+      "size": "large"
+    }
+  ],
+
+  "wrappings": [
+    {
+      "id": "wrapping-01",
+      "name": "تغليف بسيط",
+      "price": 40
+    },
+    {
+      "id": "wrapping-02",
+      "name": "تغليف أنيق",
+      "price": 70
+    },
+    {
+      "id": "wrapping-03",
+      "name": "تغليف فاخر",
+      "price": 120
+    }
+  ],
+
+  "greetingCards": [
+    {
+      "id": "card-01",
+      "name": "كارت بسيط",
+      "price": 20
+    },
+    {
+      "id": "card-02",
+      "name": "كارت مميز",
+      "price": 35
+    },
+    {
+      "id": "card-03",
+      "name": "كارت فاخر",
+      "price": 50
+    }
+  ]
+}

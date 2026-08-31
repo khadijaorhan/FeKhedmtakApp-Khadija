@@ -1,0 +1,81 @@
+<section class="offers-page">
+
+  <div class="container">
+
+    <div class="page-header">
+
+      <div class="header-icon">
+        🏷️
+      </div>
+
+      <h1>
+        عروض الهدايا
+      </h1>
+
+      <p>
+        اكتشف العروض المتاحة واختار الهدية المناسبة ليك.
+      </p>
+
+    </div>
+
+
+    <div class="offers-grid">
+
+      @for (
+        offer of offers;
+        track offer.id
+      ) {
+
+        <article class="offer-card">
+
+          <div class="offer-icon">
+            {{ offer.icon }}
+          </div>
+
+
+          <span class="discount">
+            {{ offer.discount }}
+          </span>
+
+
+          <h2>
+            {{ offer.title }}
+          </h2>
+
+
+          <p>
+            {{ offer.description }}
+          </p>
+
+
+          <button
+            type="button"
+            (click)="goToCatalog()"
+          >
+            تصفح الهدايا
+          </button>
+
+        </article>
+
+      }
+
+    </div>
+
+
+    <div class="page-actions">
+
+      <button
+        type="button"
+        class="back-btn"
+        (click)="goBack()"
+      >
+        <i class="bi bi-arrow-right"></i>
+
+        رجوع
+      </button>
+
+    </div>
+
+  </div>
+
+</section>

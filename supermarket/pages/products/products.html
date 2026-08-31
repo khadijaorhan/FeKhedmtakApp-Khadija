@@ -1,0 +1,67 @@
+<div class="products-page-container">
+  
+  <!-- مسار التنقل العلوي -->
+  <div class="breadcrumb">
+    <a routerLink="/supermarket">الرئيسية</a>
+    <span>/</span>
+    <span class="active">تسوق كل المنتجات</span>
+  </div>
+
+  <!-- ترويسة الصفحة وشريط التحكم -->
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">جميع منتجات السوبرماركت</h1>
+      <p class="results-count">عرض {{ filteredProducts.length }} من أصل {{ allProducts.length }} منتج</p>
+    </div>
+
+    <!-- أدوات البحث والترتيب -->
+    <div class="controls-wrapper">
+      <div class="search-box">
+        <input 
+          type="text" 
+          placeholder="ابحث عن منتج، خضار، فاكهة..." 
+          [(ngModel)]="searchQuery" 
+          (input)="applyFilterAndSort()" 
+        />
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="sort-box">
+        <select [(ngModel)]="sortBy" (change)="applyFilterAndSort()">
+          <option value="default">الترتيب الافتراضي</option>
+          <option value="price-asc">السعر: من الأقل للأعلى</option>
+          <option value="price-desc">السعر: من الأعلى للأقل</option>
+          <option value="rating">الأعلى تقييماً ⭐</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- شريط فلترة الأقسام -->
+  <div class="categories-filter-bar">
+    <button 
+      *ngFor="let cat of categories" 
+      class="filter-chip"
+      [class.active]="selectedCategory === cat"
+      (click)="selectCategory(cat)">
+      {{ cat }}
+    </button>
+  </div>
+
+  <!-- شبكة عرض المنتجات -->
+  <div class="products-grid" *ngIf="filteredProducts.length > 0">
+   <app-product-card
+  *ngFor="let product of filteredProducts"
+  [product]="product">
+</app-product-card>
+  </div>
+
+  <!-- حالة عدم العثور على نتائج -->
+  <div class="no-results" *ngIf="filteredProducts.length === 0">
+    <div class="no-results-icon">📦</div>
+    <h3>لا توجد منتجات مطابقة لبحثك</h3>
+    <p>جربي البحث باسم آخر أو اختيار قسم مختلف.</p>
+    <button class="btn-reset" (click)="searchQuery = ''; selectCategory('الكل')">عرض كل المنتجات</button>
+  </div>
+
+</div>

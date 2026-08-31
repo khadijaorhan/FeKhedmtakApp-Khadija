@@ -1,0 +1,169 @@
+:host {
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --primary-soft: #ecfdf5;
+  --primary-border: #a7f3d0;
+
+  --dark: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  display: block;
+}
+
+
+.selector-section {
+  padding: 24px;
+
+  background-color: white;
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  direction: rtl;
+}
+
+
+.section-header {
+  margin-bottom: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+
+.icon {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--primary-soft);
+
+  border-radius: 50%;
+
+  font-size: 22px;
+}
+
+
+.section-header h2 {
+  margin-bottom: 4px;
+
+  color: var(--dark);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.section-header p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+
+.options-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 13px;
+}
+
+
+.option-card {
+  min-height: 120px;
+
+  padding: 16px 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  background-color: white;
+
+  border: 2px solid var(--primary-border);
+
+  border-radius: 15px;
+
+  color: var(--dark);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.option-card:hover {
+  background-color: var(--primary-soft);
+
+  border-color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+
+.option-card.selected {
+  background-color: var(--primary);
+
+  border-color: var(--primary);
+
+  color: white;
+}
+
+
+.option-icon {
+  font-size: 25px;
+}
+
+
+.option-card strong {
+  font-size: 14px;
+}
+
+
+.option-card small {
+  color: var(--muted);
+}
+
+
+.option-card.selected small {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+@media (max-width: 768px) {
+
+  .options-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

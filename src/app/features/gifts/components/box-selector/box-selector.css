@@ -1,0 +1,168 @@
+:host {
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --primary-soft: #ecfdf5;
+  --primary-border: #a7f3d0;
+
+  --dark: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  display: block;
+}
+
+
+.boxes-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+.box-card {
+  padding: 0;
+
+  overflow: hidden;
+
+  background-color: white;
+
+  border: 2px solid var(--border);
+
+  border-radius: 18px;
+
+  color: var(--dark);
+
+  cursor: pointer;
+
+  text-align: right;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.box-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--primary-border);
+
+  box-shadow:
+    0 10px 24px
+    rgba(0, 0, 0, 0.07);
+}
+
+
+.box-card.selected {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 10px 25px
+    rgba(16, 185, 129, 0.16);
+}
+
+
+.box-image {
+  position: relative;
+
+  height: 230px;
+
+  background-color: #f3f4f6;
+}
+
+
+.box-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.selected-badge {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  padding: 6px 11px;
+
+  background-color: var(--primary);
+
+  border-radius: 50px;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.box-content {
+  padding: 17px;
+}
+
+
+.box-content h3 {
+  margin-bottom: 8px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+.size {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  padding: 5px 10px;
+
+  background-color: var(--primary-soft);
+
+  border-radius: 50px;
+
+  color: var(--primary-dark);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.box-content strong {
+  display: block;
+
+  color: var(--primary-dark);
+
+  font-size: 21px;
+}
+
+
+.box-content small {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+@media (max-width: 992px) {
+
+  .boxes-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 576px) {
+
+  .boxes-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

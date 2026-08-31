@@ -1,0 +1,80 @@
+<div class="boxes-grid">
+
+  @for (
+    box of boxes;
+    track box.id
+  ) {
+
+    <button
+      type="button"
+      class="box-card"
+      [class.selected]="
+        isSelected(box.id)
+      "
+      (click)="selectBox(box)"
+    >
+
+      <div class="box-image">
+
+        <img
+          [src]="box.image"
+          [alt]="box.name"
+        >
+
+
+        @if (
+          isSelected(box.id)
+        ) {
+
+          <span class="selected-badge">
+            ✓ تم الاختيار
+          </span>
+
+        }
+
+      </div>
+
+
+      <div class="box-content">
+
+        <h3>
+          {{ box.name }}
+        </h3>
+
+
+        <span class="size">
+
+          @switch (box.size) {
+
+            @case ('small') {
+              صغير
+            }
+
+            @case ('medium') {
+              متوسط
+            }
+
+            @case ('large') {
+              كبير
+            }
+
+          }
+
+        </span>
+
+
+        <strong>
+          {{ box.price }}
+
+          <small>
+            جنيه
+          </small>
+        </strong>
+
+      </div>
+
+    </button>
+
+  }
+
+</div>
