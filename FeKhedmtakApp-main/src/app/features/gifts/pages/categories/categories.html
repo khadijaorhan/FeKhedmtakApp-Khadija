@@ -1,0 +1,74 @@
+<section class="categories-page">
+
+  <div class="container">
+
+    <div class="page-header">
+
+      <div class="header-icon">
+        🎁
+      </div>
+
+      <h1>
+        أقسام الهدايا
+      </h1>
+
+      <p>
+        اختار القسم اللي يناسبك واكتشف الهدايا المتاحة.
+      </p>
+
+    </div>
+
+
+    <div class="categories-grid">
+
+      @for (
+        category of categories;
+        track category.id
+      ) {
+
+        <button
+          type="button"
+          class="category-card"
+          (click)="openCategory(category.id)"
+        >
+
+          <span class="category-icon">
+            {{ category.icon }}
+          </span>
+
+          <h2>
+            {{ category.name }}
+          </h2>
+
+          <p>
+            {{ category.description }}
+          </p>
+
+          <span class="open-text">
+            عرض الهدايا
+            <i class="bi bi-arrow-left"></i>
+          </span>
+
+        </button>
+
+      }
+
+    </div>
+
+
+    <div class="page-actions">
+
+      <button
+        type="button"
+        class="back-btn"
+        (click)="goBack()"
+      >
+        <i class="bi bi-arrow-right"></i>
+        رجوع
+      </button>
+
+    </div>
+
+  </div>
+
+</section>

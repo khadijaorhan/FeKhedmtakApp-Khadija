@@ -1,0 +1,35 @@
+<section class="date-section">
+
+  <div class="section-header">
+
+    <div class="icon">
+      📅
+    </div>
+
+    <div>
+
+      <h2>
+        تاريخ التوصيل
+      </h2>
+
+      <p>
+        اختار اليوم المناسب لتوصيل الهدية.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="date-input">
+
+    <input
+      type="date"
+      [min]="minDate"
+      [(ngModel)]="deliveryDate"
+      (ngModelChange)="updateDate()"
+    >
+
+  </div>
+
+</section>

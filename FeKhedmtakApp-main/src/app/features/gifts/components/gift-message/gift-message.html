@@ -1,0 +1,41 @@
+<section class="message-section">
+
+  <div class="section-header">
+
+    <div class="icon">
+      ✍️
+    </div>
+
+    <div>
+
+      <h2>
+        رسالة شخصية
+      </h2>
+
+      <p>
+        اكتب رسالة صغيرة للشخص اللي هتوصله الهدية.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <textarea
+    rows="5"
+    [attr.maxlength]="maxLength"
+    placeholder="اكتب رسالتك هنا..."
+    [(ngModel)]="message"
+    (ngModelChange)="updateMessage()"
+  ></textarea>
+
+
+  <div class="counter">
+
+    {{ message.length }}
+    /
+    {{ maxLength }}
+
+  </div>
+
+</section>

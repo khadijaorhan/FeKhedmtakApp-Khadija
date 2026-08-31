@@ -1,0 +1,208 @@
+<section class="gifts-home">
+
+  <div class="container">
+
+    <div class="hero">
+
+      <div class="gift-icon">
+        🎁
+      </div>
+
+      <h1>
+        هديتك تبدأ من هنا
+      </h1>
+
+      <p class="subtitle">
+        اختار الطريقة اللي تناسبك،
+        وإحنا هنساعدك تلاقي الهدية المناسبة.
+      </p>
+
+
+      <div class="main-actions">
+
+        <button
+          type="button"
+          class="main-btn"
+          (click)="goToRecommendation()"
+        >
+          <span class="btn-icon">
+            ✨
+          </span>
+
+          <span class="btn-text">
+            رشّح لي هدية
+          </span>
+        </button>
+
+
+        <button
+          type="button"
+          class="main-btn"
+          (click)="goToCatalog()"
+        >
+          <span class="btn-icon">
+            🛍️
+          </span>
+
+          <span class="btn-text">
+            أنا هختار بنفسي
+          </span>
+        </button>
+
+
+        <button
+          type="button"
+          class="main-btn"
+          (click)="goToPriceFilter()"
+        >
+          <span class="btn-icon">
+            💰
+          </span>
+
+          <span class="btn-text">
+            تصنيف حسب السعر
+          </span>
+        </button>
+
+      </div>
+
+
+      <div class="categories-area">
+
+        <button
+          type="button"
+          class="categories-toggle"
+          [class.open]="showCategories"
+          (click)="toggleCategories()"
+        >
+
+          <span>
+            🎁 أقسام الهدايا
+          </span>
+
+          <span class="arrow">
+            {{ showCategories ? '▲' : '▼' }}
+          </span>
+
+        </button>
+
+
+        @if (showCategories) {
+
+          <div class="categories-grid">
+
+            <button
+              type="button"
+              class="category-card"
+              (click)="openCategory('flowers')"
+            >
+              <span class="category-icon">
+                🌹
+              </span>
+
+              <span>
+                ورد
+              </span>
+            </button>
+
+
+            <button
+              type="button"
+              class="category-card"
+              (click)="openCategory('chocolates')"
+            >
+              <span class="category-icon">
+                🍫
+              </span>
+
+              <span>
+                شوكولاتة
+              </span>
+            </button>
+
+
+            <button
+              type="button"
+              class="category-card"
+              (click)="openCategory('perfumes')"
+            >
+              <span class="category-icon">
+                🌸
+              </span>
+
+              <span>
+                عطور
+              </span>
+            </button>
+
+
+            <button
+              type="button"
+              class="category-card"
+              (click)="openCategory('accessories')"
+            >
+              <span class="category-icon">
+                🎀
+              </span>
+
+              <span>
+                إكسسوارات
+              </span>
+            </button>
+
+
+            <button
+              type="button"
+              class="category-card"
+              (click)="openCategory('male')"
+            >
+              <span class="category-icon">
+                👨
+              </span>
+
+              <span>
+                هدايا رجالية
+              </span>
+            </button>
+
+
+            <button
+              type="button"
+              class="category-card"
+              (click)="openCategory('female')"
+            >
+              <span class="category-icon">
+                👩
+              </span>
+
+              <span>
+                هدايا نسائية
+              </span>
+            </button>
+
+
+            <button
+              type="button"
+              class="category-card"
+              (click)="openCategory('kids')"
+            >
+              <span class="category-icon">
+                🧸
+              </span>
+
+              <span>
+                هدايا أطفال
+              </span>
+            </button>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

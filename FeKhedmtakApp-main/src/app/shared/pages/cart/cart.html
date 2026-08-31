@@ -1,0 +1,362 @@
+<section class="cart-page">
+
+  <div class="container">
+
+    <div class="page-header">
+
+      <div class="header-icon">
+        🛒
+      </div>
+
+      <h1>
+        سلة التسوق
+      </h1>
+
+      <p>
+        هنا هتلاقي كل اختياراتك من الهدايا والسوبر ماركت والصيدلية.
+      </p>
+
+    </div>
+
+
+    @if (items.length === 0) {
+
+      <div class="empty-cart">
+
+        <div class="empty-icon">
+          🛒
+        </div>
+
+        <h2>
+          سلة التسوق فارغة
+        </h2>
+
+        <p>
+          لسه مفيش منتجات في السلة.
+        </p>
+
+        <button
+          type="button"
+          (click)="continueShopping()"
+        >
+          تصفح الخدمات
+        </button>
+
+      </div>
+
+    } @else {
+
+      <div class="cart-layout">
+
+        <div class="cart-items">
+
+          <div class="cart-top">
+
+            <div>
+
+              <h2>
+                محتويات السلة
+              </h2>
+
+              <span>
+                {{ itemsCount }}
+                عنصر
+              </span>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="clear-btn"
+              (click)="clearCart()"
+            >
+              مسح السلة
+            </button>
+
+          </div>
+
+
+          @for (
+            item of items;
+            track item.source + '-' + item.id
+          ) {
+
+            <article class="cart-item">
+
+              @if (item.image) {
+
+                <div class="item-image">
+
+                  <img
+                    [src]="item.image"
+                    [alt]="item.name"
+                  >
+
+                </div>
+
+              }
+
+
+              <div class="item-content">
+
+                <div class="item-title-row">
+
+                  <div>
+
+                    <span class="gift-badge">
+                      {{ getSourceName(item) }}
+                    </span>
+
+                    <h3>
+                      {{ item.name }}
+                    </h3>
+
+                  </div>
+
+
+                  <div class="item-actions">
+
+                    @if (isGiftBox(item)) {
+
+                      <button
+                        type="button"
+                        class="edit-btn"
+                        (click)="editItem(item)"
+                        aria-label="تعديل الهدية"
+                      >
+                        <i class="bi bi-pencil"></i>
+
+                        تعديل
+                      </button>
+
+                    }
+
+
+                    <button
+                      type="button"
+                      class="remove-btn"
+                      (click)="removeItem(item)"
+                      aria-label="حذف"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </button>
+
+                  </div>
+
+                </div>
+
+
+                @if (isGiftBox(item)) {
+
+                  <div class="gift-details">
+
+                    <div>
+                      <span>
+                        الصندوق
+                      </span>
+
+                      <strong>
+                        {{ getBoxName(item) }}
+                      </strong>
+                    </div>
+
+
+                    <div>
+                      <span>
+                        المنتجات
+                      </span>
+
+                      <strong>
+                        {{ getProductsCount(item) }}
+                        منتج
+                      </strong>
+                    </div>
+
+
+                    <div>
+                      <span>
+                        التغليف
+                      </span>
+
+                      <strong>
+                        {{ getWrappingName(item) }}
+                      </strong>
+                    </div>
+
+
+                    <div>
+                      <span>
+                        البطاقة
+                      </span>
+
+                      <strong>
+                        {{ getCardName(item) }}
+                      </strong>
+                    </div>
+
+
+                    @if (getPersonalMessage(item)) {
+
+                      <div class="message-detail">
+
+                        <span>
+                          الرسالة
+                        </span>
+
+                        <strong>
+                          {{ getPersonalMessage(item) }}
+                        </strong>
+
+                      </div>
+
+                    }
+
+
+                    @if (getDeliveryDate(item)) {
+
+                      <div>
+
+                        <span>
+                          تاريخ التوصيل
+                        </span>
+
+                        <strong>
+                          {{ getDeliveryDate(item) }}
+                        </strong>
+
+                      </div>
+
+                    }
+
+                  </div>
+
+                }
+
+
+                <div class="item-bottom">
+
+                  <div class="quantity-control">
+
+                    <button
+                      type="button"
+                      (click)="decreaseQuantity(item)"
+                    >
+                      −
+                    </button>
+
+                    <span>
+                      {{ item.quantity }}
+                    </span>
+
+                    <button
+                      type="button"
+                      (click)="increaseQuantity(item)"
+                    >
+                      +
+                    </button>
+
+                  </div>
+
+
+                  <div class="item-price">
+
+                    {{
+                      item.price *
+                      item.quantity
+                    }}
+
+                    <span>
+                      جنيه
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          }
+
+        </div>
+
+
+        <aside class="cart-summary">
+
+          <h2>
+            ملخص السلة
+          </h2>
+
+
+          <div class="summary-row">
+
+            <span>
+              عدد العناصر
+            </span>
+
+            <strong>
+              {{ itemsCount }}
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              المجموع
+            </span>
+
+            <strong>
+              {{ subtotal }}
+              جنيه
+            </strong>
+
+          </div>
+
+
+          <div class="divider"></div>
+
+
+          <div class="summary-row total">
+
+            <span>
+              الإجمالي
+            </span>
+
+            <strong>
+              {{ subtotal }}
+              جنيه
+            </strong>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="checkout-btn"
+            (click)="checkout()"
+          >
+            متابعة لإتمام الطلب
+          </button>
+
+
+          <button
+            type="button"
+            class="shopping-btn"
+            (click)="continueShopping()"
+          >
+            متابعة التسوق
+          </button>
+
+        </aside>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>
