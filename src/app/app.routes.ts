@@ -31,7 +31,6 @@ export const routes: Routes = [
 
   {
     path: '',
-
     component: MainLayout,
 
     children: [
@@ -39,6 +38,18 @@ export const routes: Routes = [
       {
         path: '',
         component: Home
+      },
+
+      {
+        path: 'supermarket',
+
+        loadChildren: () =>
+          import(
+            './features/supermarket/supermarket.routes'
+          ).then(
+            routes =>
+              routes.SUPERMARKET_ROUTES
+          )
       },
 
       {

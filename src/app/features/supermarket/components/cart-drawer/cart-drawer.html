@@ -1,0 +1,222 @@
+<div
+  class="drawer-backdrop"
+  *ngIf="isOpen"
+  (click)="onClose()"
+></div>
+
+
+<aside
+  class="cart-drawer"
+  [class.open]="isOpen"
+  dir="rtl"
+>
+
+  <div class="drawer-header">
+
+    <div class="header-title">
+
+      <h3>
+        سلة المشتريات
+      </h3>
+
+      <span
+        class="count-badge"
+        *ngIf="(totalCount$ | async) as count"
+      >
+        ({{ count }})
+      </span>
+
+    </div>
+
+
+    <button
+      class="btn-close"
+      type="button"
+      (click)="onClose()"
+      title="إغلاق السلة"
+    >
+      ✕
+    </button>
+
+  </div>
+
+
+  <div class="drawer-body">
+
+    <div
+      class="empty-cart"
+      *ngIf="
+        ((cartItems$ | async)?.length ?? 0)
+        === 0
+      "
+    >
+
+      <div class="empty-icon">
+        🛒
+      </div>
+
+      <h4>
+        سلتك فارغة حالياً
+      </h4>
+
+      <p>
+        تصفح المنتجات وأضف ما تحتاجه
+        لتجربة تسوق مميزة.
+      </p>
+
+    </div>
+
+
+    <div
+      class="cart-items-list"
+      *ngIf="
+        ((cartItems$ | async)?.length ?? 0)
+        > 0
+      "
+    >
+
+      <div
+        class="cart-item"
+        *ngFor="
+          let item of (cartItems$ | async)
+        "
+      >
+
+        <img
+          [src]="item.image"
+          [alt]="item.name"
+          class="item-img"
+        >
+
+
+        <div class="item-details">
+
+          <h4 class="item-name">
+            {{ item.name }}
+          </h4>
+
+
+          <span class="item-price">
+            {{ item.price }} ج.م
+          </span>
+
+
+          <div class="item-actions">
+
+            <div class="quantity-control">
+
+              <button
+                type="button"
+                (click)="decreaseQuantity(item)"
+              >
+                -
+              </button>
+
+
+              <span>
+                {{ item.quantity }}
+              </span>
+
+
+              <button
+                type="button"
+                (click)="increaseQuantity(item)"
+              >
+                +
+              </button>
+
+            </div>
+
+
+            <button
+              class="btn-remove"
+              type="button"
+              (click)="removeItem(item)"
+              title="حذف المنتج"
+            >
+              🗑️
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="drawer-footer"
+    *ngIf="
+      ((cartItems$ | async)?.length ?? 0)
+      > 0
+    "
+  >
+
+    <div class="summary-row">
+
+      <span>
+        المجموع الفرعي:
+      </span>
+
+      <span>
+        {{ totalPrice$ | async }}
+        ج.م
+      </span>
+
+    </div>
+
+
+    <div class="summary-row">
+
+      <span>
+        مصاريف الشحن:
+      </span>
+
+      <span>
+        15 ج.م
+      </span>
+
+    </div>
+
+
+    <div class="summary-row total">
+
+      <span>
+        الإجمالي النهائي:
+      </span>
+
+      <span>
+        {{
+          ((totalPrice$ | async) ?? 0)
+          + 15
+        }}
+        ج.م
+      </span>
+
+    </div>
+
+
+    <button
+      class="btn-checkout"
+      type="button"
+      (click)="goToCheckout()"
+    >
+      إتمام الطلب الآن
+    </button>
+
+
+    <button
+      class="btn-clear"
+      type="button"
+      (click)="clearCart()"
+    >
+      تفريغ السلة
+    </button>
+
+  </div>
+
+</aside>

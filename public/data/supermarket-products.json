@@ -1,0 +1,432 @@
+[
+  {
+    "id": "sup-101",
+    "name": "عصير برتقال طبيعي (1 لتر)",
+    "description": "عصير برتقال طازج 100% معصور بدون سكر مضاف.",
+    "category": "مشروبات",
+    "price": 35.00,
+    "oldPrice": 42.00,
+    "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+{
+    "id": "sup-102",
+    "name": "عصير تفاح نقي (1 لتر)",
+    "description": "عصير تفاح طبيعي ومنعش غني بالفيتامينات والمعادن.",
+    "category": "مشروبات",
+    "price": 38.00,
+    "image": "https://images.unsplash.com/photo-1560526860-1f0e56046c85?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  {
+    "id": "sup-103",
+    "name": "مياه معدنية طبيعية (6 × 1.5 لتر)",
+    "description": "مياه شرب نقية وصحية من أنقى الينابيع الطبيعية.",
+    "category": "مشروبات",
+    "price": 45.00,
+    "oldPrice": 52.00,
+    "image": "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+  {
+    "id": "sup-104",
+    "name": "شاي أسود فاخر (100 فتلة)",
+    "description": "توليفة شاي أحمر ممتازة بنكهة أصلية قوية ومميزة.",
+    "category": "مشروبات",
+    "price": 55.00,
+    "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-105",
+    "name": "شيبس بطاطس مقرمش طبيعي",
+    "description": "رقائق بطاطس مقرمشة بزيت الزيتون والملح البحري.",
+    "category": "سناكس",
+    "price": 16.00,
+    "oldPrice": 20.00,
+    "image": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "sup-106",
+    "name": "شوكولاتة داكنة بالبندق (100 جم)",
+    "description": "شوكولاتة غنية بنسبة كاكاو 70% مع قطع البندق المحمص.",
+    "category": "سناكس",
+    "price": 32.00,
+    "image": "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+  {
+    "id": "sup-107",
+    "name": "مكسرات مشكلة فاخرة (250 جم)",
+    "description": "كاجو وفستق ولوز محمص قليل الملح عالي الجودة.",
+    "category": "سناكس",
+    "price": 85.00,
+    "oldPrice": 105.00,
+    "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+  {
+    "id": "sup-108",
+    "name": "كوكيز بقطع الشوكولاتة (12 قطعة)",
+    "description": "كوكيز مقرمش ولذيذ محشو بحبيبات الشوكولاتة الأصلية.",
+    "category": "سناكس",
+    "price": 34.00,
+    "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-109",
+    "name": "حليب كامل الدسم مبستر (1 لتر)",
+    "description": "حليب طبيعي طازج من المزرعة غني بالكالسيوم.",
+    "category": "منتجات ألبان",
+    "price": 38.00,
+    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+  {
+    "id": "sup-110",
+    "name": "جبنة صفراء شيدر طبيعية (400 جم)",
+    "description": "جبنة شيدر غنية المذاق للسندوتشات والوجبات الخفيفة.",
+    "category": "منتجات ألبان",
+    "price": 58.00,
+    "oldPrice": 70.00,
+    "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+  {
+    "id": "sup-111",
+    "name": "زبادي طبيعي طازج (عبوة 6 قطع)",
+    "description": "زبادي نقي غني بالخمائر الطبيعية المعززة للمناعة والهضم.",
+    "category": "منتجات ألبان",
+    "price": 30.00,
+    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  {
+    "id": "sup-112",
+    "name": "قالب زبدة طبيعية نقية (200 جم)",
+    "description": "زبدة طبيعية غير مملحة للطهي وإعداد أشهى الحلويات.",
+    "category": "منتجات ألبان",
+    "price": 45.00,
+    "image": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-113",
+    "name": "خبز ريفي بالحبوب الكاملة",
+    "description": "خبز طازج غني بالألياف ومخبوز يومياً على الطريقة التقليدية.",
+    "category": "مخبوزات",
+    "price": 22.00,
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+  {
+    "id": "sup-114",
+    "name": "خبز باجيت فرنسي طازج",
+    "description": "خبز فرنسي طازج مقرمش من الخارج وطري من الداخل.",
+    "category": "مخبوزات",
+    "price": 14.00,
+    "oldPrice": 18.00,
+    "image": "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  {
+    "id": "sup-115",
+    "name": "كرواسون سادة بالزبدة (4 قطع)",
+    "description": "كرواسون هش ومورق مخبوز بأجود أنواع الزبدة الطبيعية.",
+    "category": "مخبوزات",
+    "price": 36.00,
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+  {
+    "id": "sup-116",
+    "name": "كب كيك فانيليا وشوكولاتة (6 قطع)",
+    "description": "كعكات صغيرة هشة ومزينة بكريمة الشوكولاتة اللذيذة.",
+    "category": "مخبوزات",
+    "price": 40.00,
+    "oldPrice": 48.00,
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-117",
+    "name": "تفاح أحمر إيطالي (1 كجم)",
+    "description": "تفاح أحمر سكري طازج ومقرمش منتقى بعناية.",
+    "category": "فواكه",
+    "price": 48.00,
+    "oldPrice": 58.00,
+    "image": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  {
+    "id": "sup-118",
+    "name": "موز أورجانيك طازج (1 كجم)",
+    "description": "موز طازج ومغذي عالي الطاقة وغني بالبوتاسيوم.",
+    "category": "فواكه",
+    "price": 28.00,
+    "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.6,
+    "inStock": true
+  },
+  {
+    "id": "sup-119",
+    "name": "برتقال بلدي طازج (1 كجم)",
+    "description": "برتقال عصير طازج غني بفيتامين C للوقاية والمناعة.",
+    "category": "فواكه",
+    "price": 25.00,
+    "oldPrice": 32.00,
+    "image": "https://images.unsplash.com/photo-1547514701-42782101795e?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+  {
+    "id": "sup-120",
+    "name": "فراولة طازجة فاخرة (500 جم)",
+    "description": "فراولة حمراء نضرة وطازجة يومياً من المزرعة.",
+    "category": "فواكه",
+    "price": 30.00,
+    "oldPrice": 38.00,
+    "image": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-121",
+    "name": "طماطم كرزية طازجة (500 جم)",
+    "description": "طماطم شيري حلوة المذاق ومثالية للسلطات والمقبلات.",
+    "category": "خضروات",
+    "price": 20.00,
+    "image": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  {
+    "id": "sup-122",
+    "name": "خيار بلدي طازج (1 كجم)",
+    "description": "خيار بلدي مقرمش ومقطوف يومياً من المزارع المحلية.",
+    "category": "خضروات",
+    "price": 15.00,
+    "image": "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.6,
+    "inStock": true
+  },
+  {
+    "id": "sup-123",
+    "name": "بطاطس تحمير ممتازة (2 كجم)",
+    "description": "بطاطس عالية الجودة مقرمشة ومثالية للقلي والطهي.",
+    "category": "خضروات",
+    "price": 28.00,
+    "oldPrice": 35.00,
+    "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+  {
+    "id": "sup-124",
+    "name": "بروكلي أخضر طازج (500 جم)",
+    "description": "بروكلي غني بالألياف ومضادات الأكسدة للطهي الصحي.",
+    "category": "خضروات",
+    "price": 24.00,
+    "image": "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.5,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-125",
+    "name": "بازلاء خضراء مجمدة (400 جم)",
+    "description": "بازلاء خضراء سريعة التجميد تحتفظ بنضارتها وقيمتها.",
+    "category": "مجمدات",
+    "price": 24.00,
+    "image": "https://images.unsplash.com/photo-1592394533824-9440e5d68530?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "sup-126",
+    "name": "بطاطس نصف مقلية مجمدة (1 كجم)",
+    "description": "أصابع بطاطس مقرمشة وجاهزة للقلي السريع والمقرمش.",
+    "category": "مجمدات",
+    "price": 42.00,
+    "oldPrice": 50.00,
+    "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+  {
+    "id": "sup-127",
+    "name": "برجر لحم بقري جامبو (8 قطع)",
+    "description": "برجر لحم بقري صافي متبل بأشهى البهارات الطبيعية.",
+    "category": "مجمدات",
+    "price": 95.00,
+    "oldPrice": 120.00,
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  {
+    "id": "sup-128",
+    "name": "آيس كريم فانيليا وشوكولاتة (1 لتر)",
+    "description": "مثلجات كريمة ناعمة بنكهة الفانيليا وحبيبات الشوكولاتة.",
+    "category": "مجمدات",
+    "price": 55.00,
+    "image": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-129",
+    "name": "زيت زيتون بكر ممتاز (500 مل)",
+    "description": "زيت زيتون معصور على البارد عالي الجودة والنقاء.",
+    "category": "معلبات",
+    "price": 85.00,
+    "oldPrice": 110.00,
+    "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+  {
+    "id": "sup-130",
+    "name": "ذرة صفراء حلوة معلبة (340 جم)",
+    "description": "حبوب ذرة سكرية مقرمشة وجاهزة للاستخدام الفوري.",
+    "category": "معلبات",
+    "price": 20.00,
+    "image": "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "sup-131",
+    "name": "تونة قطعة واحدة بزيت الزيتون (185 جم)",
+    "description": "لحم تونة فاخر عالي الأوميجا 3 محفوظ في زيت زيتون نقي.",
+    "category": "معلبات",
+    "price": 46.00,
+    "oldPrice": 55.00,
+    "image": "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+  {
+    "id": "sup-132",
+    "name": "مكرونة إيطالية فاخرة (500 جم)",
+    "description": "مكرونة مصنوعة من قمح السيمولينا عالي الجودة.",
+    "category": "معلبات",
+    "price": 22.00,
+    "image": "https://images.unsplash.com/photo-1551462147-ff29053bfc14?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+
+ {
+    "id": "sup-133",
+    "name": "منظف ومعقم متعدد الأسطح (750 مل)",
+    "description": "بخاخ معقم برائحة اللافندر يزيل 99.9% من الجراثيم.",
+    "category": "منظفات منزلية",
+    "price": 45.00,
+    "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+  {
+    "id": "sup-134",
+    "name": "سائل غسيل الأطباق بالليمون (1 لتر)",
+    "description": "تركيبة قوية تقضي على الدهون الصعبة وتمنح لمعاناً فائقاً.",
+    "category": "منظفات منزلية",
+    "price": 32.00,
+    "oldPrice": 40.00,
+    "image": "https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  {
+    "id": "sup-135",
+    "name": "مناديل مطبخ قوية الامتصاص (4 رول)",
+    "description": "مناديل ورقية متعددة الاستعمالات شديدة التحمل والامتصاص.",
+    "category": "منظفات منزلية",
+    "price": 35.00,
+    "image": "https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "sup-136",
+    "name": "منظف ومعطر للأرضيات (1.5 لتر)",
+    "description": "تركيبة مطهرة تمنح لمعاناً وانتعاشاً يدوم حتى 24 ساعة.",
+    "category": "منظفات منزلية",
+    "price": 48.00,
+    "oldPrice": 60.00,
+    "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+
+  {
+    "id": "sup-137",
+    "name": "شاور جل مرطب بالصبار (500 مل)",
+    "description": "جل استحمام مرطب غني بفيتامين E وخلاصة الأرجان.",
+    "category": "عناية شخصية",
+    "price": 60.00,
+    "oldPrice": 75.00,
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.9,
+    "inStock": true
+  },
+  {
+    "id": "sup-138",
+    "name": "شامبو مغذي للشعر (400 مل)",
+    "description": "شامبو غني بالزيوت الطبيعية يعالج التقصف ويمنح الشعر حيوية.",
+    "category": "عناية شخصية",
+    "price": 70.00,
+    "oldPrice": 85.00,
+    "image": "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.8,
+    "inStock": true
+  },
+
+   {
+    "id": "sup-139",
+    "name": "فرشاة ومعجون أسنان حماية متكاملة",
+    "description": "عناية يومية متكاملة لصحة الفم والأسنان وانتعاش يدوم.",
+    "category": "عناية شخصية",
+    "price": 38.00,
+    "image": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.7,
+    "inStock": true
+  },
+  
+  {
+    "id": "sup-140",
+    "name": "صابون سائل مرطب لليدين (300 مل)",
+    "description": "ينظف ويرطب اليدين ومضاد للبكتيريا برائحة منعشة.",
+    "category": "عناية شخصية",
+    "price": 28.00,
+    "image": "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=500&auto=format&fit=crop&q=60",
+    "rating": 4.6,
+    "inStock": true
+  }
+]
