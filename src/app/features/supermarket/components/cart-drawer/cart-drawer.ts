@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 
 import {
-  CommonModule,
-  AsyncPipe
+  AsyncPipe,
+  CommonModule
 } from '@angular/common';
 
 import {
@@ -17,22 +17,16 @@ import {
 } from '@angular/router';
 
 import {
-  Observable,
-  map
+  Observable
 } from 'rxjs';
 
 import {
-  CartService
-} from '../../../../shared/services/cart.service';
-
-import {
-  CartItem
-} from '../../../../shared/models/cart-item.model';
-
+  SupermarketCartService,
+  SupermarketCartItem
+} from '../../services/supermarket-cart.service';
 
 @Component({
   selector: 'app-cart-drawer',
-
   standalone: true,
 
   imports: [
@@ -42,7 +36,6 @@ import {
   ],
 
   templateUrl: './cart-drawer.html',
-
   styleUrl: './cart-drawer.css'
 })
 export class CartDrawerComponent {
@@ -54,157 +47,72 @@ export class CartDrawerComponent {
   closeDrawer =
     new EventEmitter<void>();
 
-
-  private cartService =
-    inject(CartService);
+  cartService =
+    inject(SupermarketCartService);
 
   private router =
     inject(Router);
 
-
   cartItems$:
-    Observable<CartItem[]> =
-      this.cartService.items$
-        .pipe(
-          map(
-            items =>
-              items.filter(
-                item =>
-                  item.source ===
-                  'supermarket'
-              )
-          )
-        );
-
+    Observable<SupermarketCartItem[]> =
+      this.cartService.items$;
 
   totalPrice$:
     Observable<number> =
-      this.cartItems$
-        .pipe(
-          map(
-            items =>
-              items.reduce(
-                (
-                  total,
-                  item
-                ) =>
-                  total +
-                  (
-                    item.price *
-                    item.quantity
-                  ),
-                0
-              )
-          )
-        );
-
+      this.cartService.totalPrice$;
 
   totalCount$:
     Observable<number> =
-      this.cartItems$
-        .pipe(
-          map(
-            items =>
-              items.reduce(
-                (
-                  total,
-                  item
-                ) =>
-                  total +
-                  item.quantity,
-                0
-              )
-          )
-        );
+      this.cartService.totalCount$;
 
-
-  onClose():
-    void {
-
-    this.closeDrawer
-      .emit();
+  onClose(): void {
+    this.closeDrawer.emit();
   }
 
-
-  close():
-    void {
-
-    this.closeDrawer
-      .emit();
+  close(): void {
+    this.closeDrawer.emit();
   }
-
 
   increaseQuantity(
-    item: CartItem
+    item: SupermarketCartItem
   ): void {
 
     this.cartService
       .increaseQuantity(
-        item.id,
-        item.source
+        String(item.id)
       );
   }
 
-
   decreaseQuantity(
-    item: CartItem
+    item: SupermarketCartItem
   ): void {
 
     this.cartService
       .decreaseQuantity(
-        item.id,
-        item.source
+        String(item.id)
       );
   }
 
-
   removeItem(
-    item: CartItem
+    item: SupermarketCartItem
   ): void {
 
     this.cartService
       .removeItem(
-        item.id,
-        item.source
+        String(item.id)
       );
   }
 
-
-  clearCart():
-    void {
-
-    const supermarketItems =
-      this.cartService
-        .getItems()
-        .filter(
-          item =>
-            item.source ===
-            'supermarket'
-        );
-
-
-    supermarketItems.forEach(
-      item => {
-
-        this.cartService
-          .removeItem(
-            item.id,
-            item.source
-          );
-      }
-    );
+  clearCart(): void {
+    this.cartService.clearCart();
   }
 
+  goToCheckout(): void {
 
-  goToCheckout():
-    void {
+    this.closeDrawer.emit();
 
-    this.closeDrawer
-      .emit();
-
-    this.router.navigate(
-      ['/supermarket/checkout']
-    );
+    this.router.navigate([
+      '/supermarket/checkout'
+    ]);
   }
-
 }

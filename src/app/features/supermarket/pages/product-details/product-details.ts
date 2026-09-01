@@ -23,17 +23,11 @@ import {
 } from '../../services/supermarket';
 
 import {
-  CartService
-} from '../../../../shared/services/cart.service';
-
-import {
-  CartItem
-} from '../../../../shared/models/cart-item.model';
-
+  SupermarketCartService
+} from '../../services/supermarket-cart.service';
 
 @Component({
   selector: 'app-product-details',
-
   standalone: true,
 
   imports: [
@@ -42,14 +36,10 @@ import {
     RouterModule
   ],
 
-  templateUrl:
-    './product-details.html',
-
-  styleUrl:
-    './product-details.css'
+  templateUrl: './product-details.html',
+  styleUrl: './product-details.css'
 })
-export class ProductDetailsComponent
-  implements OnInit {
+export class ProductDetailsComponent implements OnInit {
 
   private route =
     inject(ActivatedRoute);
@@ -58,36 +48,27 @@ export class ProductDetailsComponent
     inject(SupermarketService);
 
   private cartService =
-    inject(CartService);
+    inject(SupermarketCartService);
 
   private cdr =
     inject(ChangeDetectorRef);
 
+  product: any = null;
 
-  product: any =
-    null;
+  quantity = 1;
 
-  quantity =
-    1;
+  addedSuccess = false;
 
-  addedSuccess =
-    false;
-
-
-  ngOnInit():
-    void {
+  ngOnInit(): void {
 
     const id =
-      this.route
-        .snapshot
+      this.route.snapshot
         .paramMap
         .get('id');
-
 
     if (!id) {
       return;
     }
-
 
     this.supermarketService
       .getProductById(id)
@@ -95,13 +76,10 @@ export class ProductDetailsComponent
 
         next: data => {
 
-          this.product =
-            data;
+          this.product = data;
 
-          this.cdr
-            .detectChanges();
+          this.cdr.detectChanges();
         },
-
 
         error: err => {
 
@@ -114,86 +92,41 @@ export class ProductDetailsComponent
       });
   }
 
-
-  increaseQuantity():
-    void {
+  increaseQuantity(): void {
 
     this.quantity++;
   }
 
+  decreaseQuantity(): void {
 
-  decreaseQuantity():
-    void {
-
-    if (
-      this.quantity > 1
-    ) {
+    if (this.quantity > 1) {
 
       this.quantity--;
     }
   }
 
-
-  addToCart():
-    void {
+  addToCart(): void {
 
     if (!this.product) {
       return;
     }
 
+    this.cartService.addToCart(
+      this.product,
+      this.quantity
+    );
 
-    const cartItem:
-      CartItem = {
-
-      id:
-        String(
-          this.product.id
-        ),
-
-      source:
-        'supermarket',
-
-      type:
-        'normal-product',
-
-      name:
-        this.product.name,
-
-      price:
-        Number(
-          this.product.price
-        ),
-
-      quantity:
-        this.quantity,
-
-      image:
-        this.product.image
-    };
-
-
-    this.cartService
-      .addItem(
-        cartItem
-      );
-
-
-    this.addedSuccess =
-      true;
-
+    this.addedSuccess = true;
 
     setTimeout(
       () => {
 
-        this.addedSuccess =
-          false;
+        this.addedSuccess = false;
 
-        this.cdr
-          .detectChanges();
+        this.cdr.detectChanges();
 
       },
       2000
     );
   }
-
 }

@@ -2,27 +2,39 @@ import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { CartService } from '../../pages/checkout/checkout';
+import {
+  SupermarketCartService
+} from '../../services/supermarket-cart.service';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   templateUrl: './product-card.html',
   styleUrls: ['./product-card.css']
 })
 export class ProductCardComponent {
-  @Input() product: any;
 
-  // حقن خدمة السلة
-  private cartService = inject(CartService);
+  @Input()
+  product: any;
 
-  // دالة الإضافة للسلة عند الضغط على الزر
+  private cartService =
+    inject(SupermarketCartService);
+
   onAddToCart(event: Event): void {
-    event.stopPropagation(); // لمنع فتح تفاصيل المنتج عند الضغط على الزر
-    if (this.product) {
-      // this.cartService.addToCart(this.product, 1);
-      (this.cartService as any)?.addToCart?.(this.product as any, 1);
+
+    event.stopPropagation();
+
+    if (!this.product) {
+      return;
     }
+
+    this.cartService.addToCart(
+      this.product,
+      1
+    );
   }
 }

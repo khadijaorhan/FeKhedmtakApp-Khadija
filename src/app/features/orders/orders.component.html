@@ -1,0 +1,501 @@
+<div class="checkout-page" dir="rtl">
+  <div class="container">
+
+    <!-- Page Header -->
+    <div class="page-header text-center">
+      <h2>🛒 إتمام الطلب والدفع</h2>
+      <p>مراجعة المنتجات وتأكيد بيانات التوصيل</p>
+    </div>
+
+
+    <div class="checkout-grid">
+
+      <!-- Products Section -->
+      <section class="products-section">
+
+        <h3>📦 المنتجات المطلوبة</h3>
+
+
+        <!-- Empty Cart -->
+        <div
+          *ngIf="items.length === 0"
+          class="empty-cart-msg"
+        >
+          <div class="empty-cart-icon">
+            🛒
+          </div>
+
+          <h4>
+            سلتك فارغة حالياً
+          </h4>
+
+          <p>
+            لم تقم بإضافة أي منتجات للطلب بعد.
+          </p>
+
+          <a
+            routerLink="/"
+            class="browse-btn"
+          >
+            تصفح المنتجات
+          </a>
+        </div>
+
+
+        <!-- Products -->
+        <div *ngIf="items.length > 0">
+
+          <div
+            class="product-card"
+            *ngFor="let item of items; let i = index"
+          >
+
+            <!-- Product Image -->
+            <div class="product-img">
+              <img
+                [src]="item.image"
+                [alt]="item.name"
+              >
+            </div>
+
+
+            <!-- Product Details -->
+            <div class="product-details">
+
+              <h4 class="product-title">
+                {{ item.name }}
+              </h4>
+
+
+              <span class="product-source">
+                من المتجر
+              </span>
+
+
+              <div class="stock-info">
+                متوفر في المخزن - جاهز للشحن
+              </div>
+
+
+              <!-- GREEN PRICE -->
+              <div class="product-price">
+                {{ item.price }}
+                <span class="currency">
+                  EGP
+                </span>
+              </div>
+
+
+              <div class="controls-row">
+
+                <div class="quantity-picker">
+
+                  <button
+                    type="button"
+                    class="btn-qty"
+                    (click)="decreaseQty(i)"
+                  >
+                    -
+                  </button>
+
+                  <span class="qty-number">
+                    {{ item.quantity }}
+                  </span>
+
+                  <button
+                    type="button"
+                    class="btn-qty"
+                    (click)="increaseQty(i)"
+                  >
+                    +
+                  </button>
+
+                </div>
+
+
+                <span class="divider">
+                  |
+                </span>
+
+
+                <button
+                  type="button"
+                  class="action-btn remove-btn"
+                  (click)="removeItem(i)"
+                >
+                  🗑️ إزالة
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Order Summary -->
+          <div class="summary-box">
+
+            <div class="summary-row">
+              <span>
+                إجمالي المنتجات:
+              </span>
+
+              <span class="summary-price">
+                {{ calculateSubtotal() }} EGP
+              </span>
+            </div>
+
+
+            <div class="summary-row">
+              <span>
+                مصاريف الشحن:
+              </span>
+
+              <span class="free-shipping">
+                مجاني ⚡
+              </span>
+            </div>
+
+
+            <div class="summary-row total">
+              <span>
+                الإجمالي النهائي:
+              </span>
+
+              <span class="total-price">
+                {{ calculateSubtotal() }} EGP
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- Checkout Form -->
+      <section class="forms-section">
+
+        <div class="card-box">
+
+          <h3>
+            🚚 بيانات التوصيل والدفع
+          </h3>
+
+
+          <form (ngSubmit)="submitOrder()">
+
+            <!-- Name -->
+            <div class="form-group">
+
+              <label>
+                الاسم بالكامل
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="text"
+                [(ngModel)]="customerData.name"
+                name="name"
+                placeholder="أدخل اسمك الثلاثي"
+                required
+              >
+
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-group">
+
+              <label>
+                رقم الهاتف
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="tel"
+                [(ngModel)]="customerData.phone"
+                name="phone"
+                placeholder="01xxxxxxxxx"
+                required
+              >
+
+            </div>
+
+
+            <!-- Country -->
+            <div class="form-group">
+
+              <label>
+                الدولة
+              </label>
+
+              <select
+                [(ngModel)]="customerData.country"
+                name="country"
+              >
+
+                <option value="">
+                  اختر الدولة
+                </option>
+
+                <option value="مصر">
+                  مصر
+                </option>
+
+                <option value="السعودية">
+                  السعودية
+                </option>
+
+                <option value="الإمارات">
+                  الإمارات
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Address -->
+            <div class="form-group">
+
+              <label>
+                العنوان التفصيلي
+                <span class="required">*</span>
+              </label>
+
+              <textarea
+                rows="3"
+                [(ngModel)]="customerData.address"
+                name="address"
+                placeholder="المدينة، الحي، الشارع، رقم المبنى..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <!-- Payment -->
+            <div class="payment-section">
+
+              <h4>
+                💳 طريقة الدفع
+              </h4>
+
+
+              <!-- Cash -->
+              <label
+                class="payment-option"
+                [class.active]="customerData.paymentMethod === 'cash'"
+              >
+
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="cash"
+                  [(ngModel)]="customerData.paymentMethod"
+                >
+
+                <span>
+                  💵 الدفع عند الاستلام (كاش)
+                </span>
+
+              </label>
+
+
+              <!-- Visa -->
+              <label
+                class="payment-option"
+                [class.active]="customerData.paymentMethod === 'visa'"
+              >
+
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="visa"
+                  [(ngModel)]="customerData.paymentMethod"
+                >
+
+                <span>
+                  💳 كارت بنكي (ميزة / ماستركارد)
+                </span>
+
+              </label>
+
+
+              <!-- Visa Form -->
+              <div
+                *ngIf="customerData.paymentMethod === 'visa'"
+                class="visa-box"
+              >
+
+                <h4>
+                  💳 بيانات الفيزا
+                </h4>
+
+
+                <div class="form-group">
+
+                  <label>
+                    اسم صاحب البطاقة
+                  </label>
+
+                  <input
+                    type="text"
+                    [(ngModel)]="visaData.cardHolder"
+                    name="cardHolder"
+                    placeholder="الاسم المكتوب على الكارت"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-group">
+
+                  <label>
+                    رقم الكارت
+                  </label>
+
+                  <input
+                    type="text"
+                    [(ngModel)]="visaData.cardNumber"
+                    name="cardNumber"
+                    maxlength="16"
+                    placeholder="0000 0000 0000 0000"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="visa-row">
+
+                  <div class="form-group">
+
+                    <label>
+                      تاريخ الانتهاء
+                    </label>
+
+                    <input
+                      type="text"
+                      [(ngModel)]="visaData.expiryDate"
+                      name="expiryDate"
+                      maxlength="5"
+                      placeholder="MM/YY"
+                      required
+                    >
+
+                  </div>
+
+
+                  <div class="form-group">
+
+                    <label>
+                      رمز الأمان (CVV)
+                    </label>
+
+                    <input
+                      type="password"
+                      [(ngModel)]="visaData.cvv"
+                      name="cvv"
+                      maxlength="3"
+                      placeholder="123"
+                      required
+                    >
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Checkout Button -->
+            <button
+              type="submit"
+              class="btn-checkout"
+              [disabled]="items.length === 0"
+            >
+              تأكيد وإرسال الطلب 📌
+            </button>
+
+          </form>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- Features -->
+    <div class="features-banner">
+
+      <div class="feature-item">
+        <div class="icon">
+          🚀
+        </div>
+
+        <h4>
+          توصيل سريع
+        </h4>
+
+        <p>
+          توصيل في نفس اليوم لجميع الطلبات
+        </p>
+      </div>
+
+
+      <div class="feature-item">
+        <div class="icon">
+          🔒
+        </div>
+
+        <h4>
+          دفع آمن 100%
+        </h4>
+
+        <p>
+          تشفير كامل لبياناتك الشخصية والبنكية
+        </p>
+      </div>
+
+
+      <div class="feature-item">
+        <div class="icon">
+          ⭐
+        </div>
+
+        <h4>
+          ضمان الجودة
+        </h4>
+
+        <p>
+          منتجات أصلية ومضمونة من المصدر
+        </p>
+      </div>
+
+
+      <div class="feature-item">
+        <div class="icon">
+          🎧
+        </div>
+
+        <h4>
+          دعم فني 24/7
+        </h4>
+
+        <p>
+          مستعدون لمساعدتك في أي وقت
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

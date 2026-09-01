@@ -156,15 +156,14 @@ export class Cart
 
   checkout(): void {
 
-    console.log(
-      'Cart ready for Order:',
-      {
-        items:
-          this.cartService.getItems(),
+    if (
+      !this.cartService.hasItems()
+    ) {
+      return;
+    }
 
-        total:
-          this.cartService.getSubtotal()
-      }
+    this.router.navigate(
+      ['/orders']
     );
   }
 
